@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+    </head>
+<body>
+    <div class="header d-none d-md-grid">
+        <div class="header-left">
+            <div><i class="fa-solid fa-circle-user"></i> <span>SRMS | <span id="userName" class="username"></span> </span></div>
+        </div>
+        <div class="header-middle"><span>Welcome</span>!</div>
+        <div class="header-right">
+<button class="header-right-btn logoutBtn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> log-out </button>
+        </div>
+    </div>
+    <nav class="navbar fixed-top d-md-none">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><div><i class="fa-solid fa-circle-user"></i> <span>SRMS | <span id="userNameMob" class="username"></span></span></div></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Welcome! <span id="userNameMobNav" class="username"></span></h5>
+        <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <ul class="navbar-nav flex-grow-1 pe-3 ">
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Main Category
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Dashboard</a></li>
+             
+              
+            </ul></li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Student
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="addResult.html">Add Result</a></li>
+              <li><a class="dropdown-item" href="viewResult.html">View Result</a></li>
+              <li><a class="dropdown-item" href="updateResult.html">Update Marks</a></li>
+              
+            </ul></li>
+            
+          </ul>
+          <ul class="navbar-nav">
+
+            <button class="header-right-btn logoutBtn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> log-out </button>
+          </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid text-center dashboardContainer">
+  <div class="row w-100 h-100">
+    <div class="col-md-3 d-none d-md-flex left p-3">
+      <div class="left-top py-2">
+        <h3 class="left-top-cat">Main category</h3>
+        <a href="#" class="left-top-head active"><i class="fa-solid fa-house"></i> Dashboard</a>
+    </div>
+    <div class="left-bottom ">
+        <div class="left-bottom-link-container">
+            <h3 class="left-bottom-cat">Student</h3>
+            <a href="addResult.html" class="left-bottom-link"><i class="fa-solid fa-plus"></i> <span>add result</span></a>
+            <a href="viewResult.html" class="left-bottom-link"><i class="fa-solid fa-eye"></i> <span>view result</span></a>
+            <a href="updateResult.html" class="left-bottom-link"><i class="fa-solid fa-pen"></i> <span>update marks</span></a>
+        </div>
+    </div>
+    </div>
+    <div class="col-md-9 d-flex justify-content-center right p-3">
+     <div class="right-boxes mt-3">
+      <div class="right-box">
+        <div class="right-box-left">
+          <i class="fa-solid fa-graduation-cap right-box-icon"></i>
+        </div>
+        <div class="right-box-right">
+          <div class="right-box-num totalStudents">0</div>
+          <div class="right-box-cat">Total Students</div>
+        </div>
+      </div>
+      <div class="right-box">
+        <div class="right-box-left">
+          <i class="fa-solid fa-book right-box-icon"></i>
+        </div>
+        <div class="right-box-right">
+          <div class="right-box-num totalSubjects">0</div>
+          <div class="right-box-cat">Total Subjects</div>
+        </div>
+      </div>
+      <div class="right-box">
+        <div class="right-box-left">
+          <i class="fa-solid fa-file-pen right-box-icon"></i>
+        </div>
+        <div class="right-box-right">
+          <div class="right-box-num marksEntered">0</div>
+          <div class="right-box-cat">Marks Entered</div>
+        </div>
+      </div>
+      <div class="right-box">
+        <div class="right-box-left">
+          <i class="fa-solid fa-clipboard-list right-box-icon"></i>
+        </div>
+        <div class="right-box-right">
+          <div class="right-box-num resultsGenerated">0</div>
+          <div class="right-box-cat">Results generated</div>
+        </div>
+      </div>
+     </div>
+    </div>
+   
+  </div>
+</div>
+<script src="dashboard.js"defer></script>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f44e101240.js" crossorigin="anonymous"></script>
+</body>
+</html>

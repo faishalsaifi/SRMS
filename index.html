@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Sign Up</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+    <div class="panel p-none">
+       
+                <div class="left-panel">
+<div class="studentCheck">
+    <h2 class="checkHead">Check Your Result</h2>
+    <input type="text" id="studentEnrollInput" class="formInput checkEnr" placeholder="Enter your Enrollment no. ...">
+    <button class="checkBtn " id="checkResultBtn">Check Result</button>
+</div>
+<div id="particles-js">
+       </div>
+                </div>
+           
+           
+                <div class="right-panel">
+                    
+                    <div class="tabs d-flex">
+     <button id="loginTab" class="loginBtn active">Login</button>
+     <button id="signupTab">Signup</button>
+   </div>
+    <div id="loginFormHtml" class="loginForm">
+      <h2>Login</h2>
+      <form>
+        <label for="loginEmail" class="formLabel"><i class="fa-solid fa-envelope"></i> Your Email</label>
+        <input type="email" id="loginEmail" class="formInput" required />
+         <label for="loginPass" class="formLabel"><i class="fa-solid fa-key"></i> Enter your Password</label>
+        <input type="password" id="loginPass" class="formInput" required />
+       <div class="signUpLink">
+        <div>
+            Dont have an account?<button id="signUpBtn" class="signUpBtn"> SignUp</button>
+        </div>
+        <div>
+            <button class="forgot" id="forgot">forgot password</button>
+        </div>
+    </div>
+        <button type="submit" class="formBtn">Login</button>
+      </form>
+</div>
+<div id="signupForm" class="signupForm" style="display: none;">
+  <h2>SignUp</h2>
+  <form id="signupFormHtml">
+  <label for="name" id="nameLab" class="formLabel"><i class="fa-solid fa-user-tie"></i> Your Full Name</label>
+  <input type="text" id="name" name="name" class="formInput" required />
+
+  <label for="email" id="emailLab" class="formLabel"><i class="fa-solid fa-envelope"></i> Your Email</label>
+  <input type="email" id="email" name="email" class="formInput" required />
+
+  <button type="button" id="sendOtpBtn" class="formBtn">Send OTP</button>
+<label for="signUpOtp" id="signUpOtpLab" class="formLabel" style="display: none;"><i class="fa-solid fa-user-shield"></i> Enter OTP</label>
+  <input type="text" id="signupOtp" class="formInput mt-2" style="display:none" />
+  
+  <label for="password" id="passLabel" class="formLabel" style="display: none;"><i class="fa-solid fa-key"></i> Enter your Password</label>
+  <input type="password" id="password" name="password" class="formInput" required style="display:none" />
+
+  <button type="submit" id="createAccountBtn" class="formBtn" style="display:none">Verify & Create Account</button>
+</form>
+</div>
+<div id="forgotForm" class="forgotForm" style="display: none;">
+  <h2>Forgot Password</h2>
+  <form id="forgotFormHtml">
+  <input type="email" id="forgotEmail" class="formInput" placeholder="Enter your email" />
+  <input type="text" id="otp" class="formInput" placeholder="Enter OTP" style="display: none;" />
+  <input type="password" class="formInput" id="newPassword" placeholder="New password" style="display: none;" />
+  <button type="submit" class="formBtn">Submit</button>
+</form>
+</div>
+
+</div></div>
+    
+           
+
+    
+   
+    <script src="index.js"defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/f44e101240.js" crossorigin="anonymous"></script>
+</body>
+</html>
