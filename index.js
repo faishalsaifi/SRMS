@@ -14,6 +14,13 @@ document.getElementById("signupTab").addEventListener("click", () => {
   document.getElementById("signupTab").classList.add("active");
   document.getElementById("loginTab").classList.remove("active");
 });
+document.getElementById("signUpBtn").addEventListener("click", () => {
+  document.getElementById("signupForm").style.display = "block";
+  document.getElementById("loginFormHtml").style.display = "none";
+  document.getElementById("forgotForm").style.display = "none";
+  document.getElementById("signupTab").classList.add("active");
+  document.getElementById("loginTab").classList.remove("active");
+});
 
 document.getElementById("forgot").addEventListener("click", () => {
   document.getElementById("forgotForm").style.display = "block";
