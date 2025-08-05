@@ -181,6 +181,17 @@ font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     color: #fff;
 }
+.del-btn{
+    background: red !important;
+    color: #fff;
+    text-transform: capitalize;
+      font-family: "Poppins", sans-serif;
+      transition: .4s ease;
+}
+.del-btn:hover{
+ color: #fff;
+ transform: scale(1.05);
+}
 @media screen and (max-width:767px) {
     .header-right-btn{
     

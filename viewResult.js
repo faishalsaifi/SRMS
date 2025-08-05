@@ -1,32 +1,3 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  const token = localStorage.getItem("token");
-  const userName = localStorage.getItem("userName");
-
-  if (!token) return alert("Token missing. Please login again.");
-
-  // Set user name in UI
-  document.getElementById("userName").textContent = userName || '';
-  document.getElementById("userNameMob").textContent = userName || '';
-  document.getElementById("userNameMobNav").textContent = userName || '';
-
-  let students = [];
-
-  try {
-    const res = await fetch("https://backend-ehm8.onrender.com/api/results/all", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-
-    students = await res.json();
-    renderStudents(students); // Initial render
-    setupSearch(students);    // Enable search
-    setupSorting(students);   // Enable sorting
-  } catch (err) {
-    console.error("Error fetching results:", err);
-    alert("Failed to load student results.");
-  }
-
   function renderStudents(data) {
     const container = document.getElementById('studentRows');
     container.innerHTML = '';
@@ -44,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="col">${student.subject}</div>
         <div class="col">
           <button class="btn btn-sm view-btn">View</button>
+          <button onclick="deleteResult('${student.id}')" class="btn btn-sm del-btn"><i class="fa-solid fa-trash-can"></i></button>
         </div>
       `;
 
@@ -58,11 +30,9 @@ if (viewBtn) {
 } else {
   console.warn('View button not found for:', student);
 }
-
-
     });
+    
   }
-
   function setupSorting(data) {
     let currentSortKey = null;
     let sortAsc = true;
@@ -87,7 +57,6 @@ if (viewBtn) {
       });
     });
   }
-
   function setupSearch(data) {
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', e => {
@@ -100,6 +69,36 @@ if (viewBtn) {
       renderStudents(filtered);
     });
   }
+async function fetchAndRenderResults() {
+  const token = localStorage.getItem("token");
+  try {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/results/all", {
+      headers: {
+        Authorization:`Bearer ${token}`
+      }
+    });
+    const data = await res.json();
+    renderStudents(data);
+    setupSearch(data);   // optional: if you want to reapply search
+    setupSorting(data);  // optional: if you want to reapply sorting
+  } catch (err) {
+    console.error("Error re-fetching results:", err);
+    alert("Failed to refresh student results.");
+  }
+}
+document.addEventListener("DOMContentLoaded", async () => {
+  const token = localStorage.getItem("token");
+  const userName = localStorage.getItem("userName");
+  
+
+  if (!token) return alert("Token missing. Please login again.");
+
+  // Set user name in UI
+  document.getElementById("userName").textContent = userName || '';
+  document.getElementById("userNameMob").textContent = userName || '';
+  document.getElementById("userNameMobNav").textContent = userName || '';
+
+await fetchAndRenderResults();
 
   // Logout handler
   document.querySelectorAll("#logoutBtn").forEach(btn => {
@@ -109,3 +108,32 @@ if (viewBtn) {
     });
   });
 });
+async function deleteResult(id) {
+ 
+  const confirmDelete = confirm("Are you sure you want to delete this result?");
+  if (!confirmDelete) return;
+
+  const token = localStorage.getItem("token");
+  try {
+    const res = await fetch(`https://backend-ehm8.onrender.com/api/results/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert("✅ Result deleted successfully!");
+
+      // ✅ Re-fetch results and re-render after short delay
+      await fetchAndRenderResults();
+    } else {
+      alert(data.message || "❌ Failed to delete result");
+    }
+
+  } catch (err) {
+    console.error("Delete error:", err);
+    alert("Something went wrong during deletion.");
+  }
+}
