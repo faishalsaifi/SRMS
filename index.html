@@ -13,23 +13,53 @@
        
                 <div class="left-panel">
 <div class="studentCheck">
-    <h2 class="checkHead">Check Your Result</h2>
-    <input type="text" id="studentEnrollInput" class="formInput checkEnr" placeholder="Enter your Enrollment no. ...">
-    <button class="checkBtn " id="checkResultBtn">Check Result</button>
+  <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L2 8L12 13L22 8L12 3Z" stroke="#7ab8f0" stroke-width="1.5" stroke-linejoin="round"></path>
+          <path d="M2 16L12 21L22 16" stroke="#7ab8f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M2 12L12 17L22 12" stroke="rgba(122,184,240,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+      <h2 class="checkHead">Check Your Result</h2>
+      <p class="checkhead-desc">Access your results and grades without login</p>
+      <div class="left-panel-box">
+<p class="panel-box-head">Quick result check</p>
+        <input type="text" id="studentEnrollInput" class="formInput checkEnr" placeholder="Enter your Enrollment no. ...">
+        <button class="checkBtn " id="checkResultBtn">Check Result</button>
+      </div>
 </div>
-<div id="particles-js">
-       </div>
+<!-- <div id="particles-js">
+       </div> -->
                 </div>
            
            
                 <div class="right-panel">
+                  <div class="right-deco">
                     
-                    <div class="tabs d-flex">
-     <button id="loginTab" class="loginBtn active">Login</button>
-     <button id="signupTab">Signup</button>
-   </div>
+                  </div>
+                  <div class="right-deco2">
+                    
+                  </div>
+             <div class="role-container  text-center mb-3" id="roleContainer">
+
+
+  <div class="role-toggle">
+    <input type="radio" name="role" id="student" value="Student" checked>
+    <label for="student"><i class="fa-solid fa-user-graduate"></i> Student</label>
+
+    <input type="radio" name="role" id="admin" value="Admin">
+    <label for="admin"><i class="fa-solid fa-user-shield"></i> Admin</label>
+
+    <span class="role-slider"></span>
+  </div>
+</div>
+<div class="form-parent">
+     <div class="tabs ">
+<button id="loginTab" class="loginBtn active">Login</button>
+<button id="signupTab">Signup</button>
+</div>
     <div id="loginFormHtml" class="loginForm">
-      <h2>Login</h2>
+      <!-- <h2>Login</h2> -->
       <form>
         <label for="loginEmail" class="formLabel"><i class="fa-solid fa-envelope"></i> Your Email</label>
         <input type="email" id="loginEmail" class="formInput" required />
@@ -47,7 +77,7 @@
       </form>
 </div>
 <div id="signupForm" class="signupForm" style="display: none;">
-  <h2>SignUp</h2>
+  <!-- <h2>SignUp</h2> -->
   <form id="signupFormHtml">
   <label for="name" id="nameLab" class="formLabel"><i class="fa-solid fa-user-tie"></i> Your Full Name</label>
   <input type="text" id="name" name="name" class="formInput" required />
@@ -64,7 +94,7 @@
 
   <button type="submit" id="createAccountBtn" class="formBtn" style="display:none">Verify & Create Account</button>
 </form>
-</div>
+</div></div>
 <div id="forgotForm" class="forgotForm" style="display: none;">
   <h2>Forgot Password</h2>
   <form id="forgotFormHtml">

@@ -66,7 +66,7 @@ document.getElementById("subject").addEventListener("change", async () => {
   if (!enrollment || !subject || !token) return;
 
   try {
-    const res = await fetch(`https://backend-ehm8.onrender.com/api/results/by-enroll/${enrollment}`, {
+    const res = await fetch(`http://localhost:5000/api/results/by-enroll/${enrollment}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -111,7 +111,7 @@ async function updateResult(event) {
 
   try {
     // 🔍 Step 1: Get the result ID from the backend based on enrollment + subject
-    const idRes = await fetch(`https://backend-ehm8.onrender.com/api/results/by-enroll/${enrollment}`, {
+    const idRes = await fetch(`http://localhost:5000/api/results/by-enroll/${enrollment}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -123,7 +123,7 @@ async function updateResult(event) {
     }
 
     // 🛠️ Step 2: Update using PUT
-    const updateRes = await fetch(`https://backend-ehm8.onrender.com/api/results/update/${result.id}`, {
+    const updateRes = await fetch(`http://localhost:5000/api/results/update/${result.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

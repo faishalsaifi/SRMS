@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const token = localStorage.getItem("token");
 
     // ✅ Use public or protected endpoint based on token
-    let url = `https://backend-ehm8.onrender.com/api/results/public/${enrollNo}`;
+    let url = `http://localhost:5000/api/results/public/${enrollNo}`;
     let options = {};
 
     if (token) {
-      url = `https://backend-ehm8.onrender.com/api/results/by-enroll/${enrollNo}`;
+      url = `http://localhost:5000/api/results/by-enroll/${enrollNo}`;
       options.headers = {
         Authorization: `Bearer ${token}`
       };

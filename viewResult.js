@@ -72,7 +72,7 @@ if (viewBtn) {
 async function fetchAndRenderResults() {
   const token = localStorage.getItem("token");
   try {
-    const res = await fetch("https://backend-ehm8.onrender.com/api/results/all", {
+    const res = await fetch("http://localhost:5000/api/results/all", {
       headers: {
         Authorization:`Bearer ${token}`
       }
@@ -115,7 +115,7 @@ async function deleteResult(id) {
 
   const token = localStorage.getItem("token");
   try {
-    const res = await fetch(`https://backend-ehm8.onrender.com/api/results/delete/${id}`, {
+    const res = await fetch(`http://localhost:5000/api/results/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

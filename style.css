@@ -14,24 +14,85 @@ body{
     height: 100%;
     width: 100%;
     display: grid;
+    
     grid-template-columns: 1fr 1fr;
    
 }
+.left-panel{
+       flex: 1.1;
+    background: #0c1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.left-panel::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(55, 138, 221, 0.18) 0%, transparent 70%);
+    top: -80px;
+    left: -80px;
+}
+.left-panel::after {
+    content: '';
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(29, 158, 117, 0.14) 0%, transparent 70%);
+    bottom: -60px;
+    right: -40px;
+}
+.right-panel{
+   
+    background: rgba(255, 255, 255, 0.7); /* Translucent white */
+    backdrop-filter: blur(15px);           /* The "frost" effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
+}
 .left-panel, .right-panel {
  display: flex;
+ position: relative;
  flex-direction: column;
  justify-content: center;
  align-items: center;
  z-index: 0;
+ /* background: linear-gradient(145deg, #2e0249, #570a57); */
 
   height: 100%;
  
 }
 
-.left-panel {
-  background-color: #4A90E2;
-  /* border-right: 1px solid #ccc; */
+.right-deco {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #f0e6d6;
+    opacity: .6;
+    pointer-events: none;
+}
+.right-deco2{
+        position: absolute;
+    bottom: -50px;
+    left: 0px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+
+    background: #e8d5c0;
+    opacity: .4;
+    pointer-events: none;
 }
 #particles-js {
   position: absolute;
@@ -41,32 +102,125 @@ body{
   top: 0;
   left: 0;
 }
+.role-container {
+  margin-top: 10px;
 
+}
+#roleContainer{
+    display: none;
+}
+.role-toggle {
+  position: relative;
+  display: flex;
+  background:#f0e6d6;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 220px;
+  margin: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.role-toggle input {
+  display: none;
+}
+
+.role-toggle label {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: 500;
+  color: #0c1a2e;
+  transition: 0.3s;
+}
+
+.role-toggle label i {
+  margin-right: 5px;
+}
+
+.role-slider {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: #0c1a2e;
+  border-radius: 30px;
+  top: 0;
+  left: 0;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+/* When Admin selected */
+#admin:checked ~ .role-slider {
+  left: 50%;
+}
+
+/* Active text color */
+#student:checked + label,
+#admin:checked + label {
+  color: #fff;
+}
 .studentCheck{
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 10;
+}
+.left-panel-box{
+    width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+        padding: 1.25rem;
+    max-width: 240px;
+}
+.brand-icon{
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(55, 138, 221, 0.18);
+    border: 1px solid rgba(55, 138, 221, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+}
+.brand-icon svg {
+    width: 26px;
+    height: 26px;
 }
 .checkEnr:focus{
     outline: none;
 }
+
 .checkHead{
      font-family: "Poppins", sans-serif !important;
      color: #fff;
 }
+.checkhead-desc ,.panel-box-head{
+        color: rgba(200, 215, 240, 0.6);
+        text-align: center;
+        font-size: 0.81rem;
+}
+.panel-box-head{
+    text-transform: uppercase;
+}
 .checkBtn{
-    margin-top: none !important;
-     padding: 0.5rem 0.5rem;
-    border-radius:0.5rem;
-     background: #fff!important;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-     color: #4A90E2;
-    border: none;
-
     width: 100%;
-    font-family: "Poppins", sans-serif !important;
+    background: #185fa5;
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 9px;
+    color: #e8f0fe;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
 }
 .right-panel {
-  background-color: #fff;
+  /* background-color: #fff; */
   gap: 1rem;
   width: 100%
 }
@@ -77,15 +231,21 @@ input, select{
   margin: 10px 0;
   padding: 10px;
 }
+.form-parent{
+      border :1px solid #3b82f62e;
+      padding: 1rem 1rem;
+    position: relative;
+
+}
 .loginForm ,.signupForm ,.forgotForm{
-    width: 90%;
-    padding: 1rem 1rem;
-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+    
+/* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
     animation-name: appear;
     border-radius: 1rem;
-   
+   /* border :1px solid #3b82f62e;
     position: relative;
- background: rgb(74, 144, 226,0.1);
+ background:rgba(15, 32, 64, 0.97); */
     animation-duration: 0.5s;
 }
 @keyframes appear{
@@ -107,6 +267,7 @@ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 .loginForm h2 ,.signupForm h2 ,.forgotForm h2{
      font-family: "Poppins", sans-serif !important;
      width: 100%;
+     color: #fff;
      display: flex;
      justify-content: center;
 }
@@ -116,41 +277,36 @@ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     justify-content: center;
 }
 .tabs{
-    width: fit-content;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     position: relative;
 overflow: hidden;
-border-radius: 3rem;
+
+
     height: fit-content;
     padding: none !important;
 }
-.tabs::after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(74, 144, 226,0.1);
-    border-radius: 3rem;
-}
+
 .active{
-    background: #4A90E2 !important;
-    color: #fff;
+    border-bottom: 2px solid #e8d5c0 !important;
+    color: #e8d5c0;
+    position: relative;
 }
+
 .tabs button {
   margin: none !important;
   background: none;
-  border: none;
+  border:none;
+  border-bottom: 2px solid rgb(255, 255, 255,0.2);
   font-family: "Poppins", sans-serif !important;
   z-index: 1;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   position: relative;
 }
 .formLabel ,.signUpBtn{
     font-family: "Poppins", sans-serif !important;
-    color: #4A90E2;
+    color: #0c1a2e;
     font-size: clamp(0.8rem, 2vw, 1rem); 
 }
 .formInput{
@@ -161,9 +317,23 @@ border-radius: 3rem;
     border: 2px solid #f5f5f5;
     padding: 0.5rem 0rem 0.5rem 0.5rem;
 }
+.checkEnr{
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 0.5px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 0 !important;
+    padding: 9px 12px;
+    color: #e8f0fe;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+}
 .signUpLink{
      font-family: "Poppins", sans-serif !important;
      display: flex;
+     color: #0c1a2e;
      font-size: clamp(0.8rem, 2vw, 1rem); 
      justify-content: space-between;
 }
@@ -171,10 +341,11 @@ border-radius: 3rem;
     background: none;
     font-family: "Poppins", sans-serif !important;
     margin-left: 0.5rem;
+    color: #e8d5c0;
     border: none;
 }
 .forgot{
-    color: #1b1b1b;
+    color: #0c1a2e;
     transition: color .4s ease;
     text-transform: capitalize;
 }
@@ -184,9 +355,9 @@ border-radius: 3rem;
 .formBtn {
      padding: 0.5rem 0.5rem;
     border-radius:0.5rem;
-     background: #fff!important;
+     background: #0c1a2e !important;
 box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-     color: #4A90E2;
+     color: #fff;
      margin-top: 1rem;
     border: none;
 

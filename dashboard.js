@@ -1,9 +1,15 @@
 async function fetchUserProfile() {
   const token = localStorage.getItem("token");
-  const userId = localStorage.getItem("userId");
+  const user = JSON.parse(localStorage.getItem("user"));
+const userId = user?.id;
+
+if (!userId) {
+  console.error("User ID missing");
+  return;
+}
 
   try {
-    const res = await fetch(`https://backend-ehm8.onrender.com/api/users/${userId}`, {
+    const res = await fetch(`http://localhost:5000/api/users/${userId}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -29,7 +35,7 @@ async function fetchDashboardStats() {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch('https://backend-ehm8.onrender.com/api/dashboard/stats', {
+    const res = await fetch('http://localhost:5000/api/dashboard/stats', {
       headers: {
         Authorization: `Bearer ${token}`
       }

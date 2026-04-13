@@ -37,7 +37,7 @@
               Main Category
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+              <li><a class="dropdown-item" href="dashboard.html"><span>⊞</span><span>Dashboard</span></a></li>
              
               
             </ul></li>
@@ -47,9 +47,10 @@
               Student
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Add Result</a></li>
-              <li><a class="dropdown-item" href="viewResult.html">View Result</a></li>
-              <li><a class="dropdown-item" href="#">Update Marks</a></li>
+              <li>  <a href="#" class="left-link active"><span>▤</span><span>Result</span></a></li>
+              <li><a href="Course.html" class="left-link"><span>▣</span><span>Courses</span></a></li>
+              <li><a href="Notification.html" class="left-link"><span>◎</span><span>Notifications</span></a></li>
+              <li><a href="Feedback.html" class="left-link"><span>◈</span><span>Feedback</span></a></li>
               
             </ul></li>
             
@@ -64,111 +65,105 @@
 </nav>
 <div class="container-fluid text-center dashboardContainer">
   <div class="row w-100 h-100">
-    <div class="col-md-3 d-none d-md-flex left p-3">
-      <div class="left-top py-2">
-        <h3 class="left-top-cat">Main category</h3>
-        <a href="dashboard.html" class="left-top-head"><i class="fa-solid fa-house"></i> Dashboard</a>
+    <div class="col-md-3 d-none d-md-flex left ">
+      
+        
+        <a href="dashboard.html" class="left-link"><span>⊞</span><span>Dashboard</span></a>
+    
+    
+        
+          
+            <a href="#" class="left-link active"><span>▤</span><span>Result</span></a>
+            <a href="Course.html" class="left-link"><span>▣</span><span>Courses</span></a>
+            <a href="Notification.html" class="left-link"><span>◎</span><span>Notifications</span></a>
+            <a href="Feedback.html" class="left-link"><span>◈</span><span>Feedback</span></a>
+ 
+   
     </div>
-    <div class="left-bottom ">
-        <div class="left-bottom-link-container">
-            <h3 class="left-bottom-cat">Student</h3>
-            <a href="#" class="left-bottom-link active"><i class="fa-solid fa-plus"></i> <span>add result</span></a>
-            <a href="viewResult.html" class="left-bottom-link"><i class="fa-solid fa-eye"></i> <span>view result</span></a>
-            <a href="updateResult.html" class="left-bottom-link"><i class="fa-solid fa-pen"></i> <span>update marks</span></a>
-        </div>
-    </div>
-    </div>
-    <div class="col-md-9 d-flex justify-content-center right p-3">
+    <div class="col-md-9 d-flex justify-content-start flex-column right p-3">
      <div class="form-container">
         <form action="#" class="add-form">
-<h3 class="form-head">Fill the Student Info</h3>
-<div>
-    <label for="name" class="input-label">Name</label>
-    <input type="text" id="name"  class="form-input">
-</div>
-<div>
-    <label for="enroll" class="input-label"> Enrollment no.</label>
-    <input type="text" id="enroll"  class="form-input" > 
-</div>
-<div>
-    <label for="email" class="input-label">Email</label>
-    <input type="email" id="email" class="form-input">  
+<h3 class="form-head">Add Result</h3>
+<div class="form-grid">
 
-</div>
-<div class="gender">
-    <label for="gender" class="input-label gender-label">Gender</label>
-  <div class="form-check ms-3 d-flex flex-row align-items-center">
-    <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
-    <label class="form-check-label gender-op" for="genderMale">
-      Male
-    </label>
+  <div>
+  <label for="email" class="input-label">Email</label>
+    <input type="email" class="form-input" id="email" placeholder="Enter student email" required>
   </div>
-  <div class="form-check ms-2 d-flex flex-row align-items-center">
-    <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female">
-    <label class="form-check-label gender-op" for="genderFemale">
-      Female
-    </label>
+  <div>
+  <label for="studentName" class="input-label">Name</label>
+    <input type="text" class="form-input" id="studentName" placeholder="Student Name" readonly >
   </div>
-  <div class="form-check ms-2 d-flex flex-row align-items-center">
-    <input class="form-check-input" type="radio" name="gender" id="genderOther" value="Other">
-    <label class="form-check-label gender-op" for="genderOther">
-      Other
-    </label>
+  <div>
+      <label for="enroll" class="input-label"> Enrollment no.</label>
+      <input type="text" id="enroll"  class="form-input" > 
   </div>
-
-</div>
-<div>
-    <div action="">
-        <label for="course" class="input-label">Select Course:</label>
-  <select id="course" class="form-input" onchange="updateSemesters()">
-    <option value="">--Select Course--</option>
-    <option value="BCA">BCA</option>
-    <option value="BCom">B.Com</option>
-    <option value="BBA">BBA</option>
-  </select>
-</div>
-</div>
-<div class="mt-3">
-<div class="resultForm" id="resultForm">
-   <label for="semester" class="input-label">Select Semester:</label>
-  <select id="semester" class="form-input" onchange="updateSubjects()">
-    <option value="">--Select Semester--</option>
-  </select>
-</div>
-</div>
-<div class="mt-3">
-    <div class="resultForm">
-  <label for="subject" class="input-label">Select Subject:</label>
-  <select id="subject" class="form-input">
-    <option value="">--Select Semester First--</option>
-  </select>
-
-</div>
-</div>
-<div>
-  <label for="marks" class="input-label">Marks</label>
-  <input type="number" id="marks" class="form-input">
-</div>
-   <div class="status">
-    <label class="input-label">Status</label>
-    <div class="form-check ms-2 d-flex flex-row align-items-center">
-      <input class="form-check-input" type="radio" name="status" id="pass" value="Pass" required>
-      <label class="form-check-label" for="pass">
-        Pass
-      </label>
+  
+  
+  
+  <div>
+      <div action="">
+          <label for="course" class="input-label">Select Course:</label>
+    <select id="course" class="form-input" onchange="updateSemesters()">
+      <option value="">--Select Course--</option>
+      
+    </select>
+  </div>
+  </div>
+  <div >
+  <div class="resultForm" id="resultForm">
+     <label for="semester" class="input-label">Select Semester:</label>
+    <select id="semester" class="form-input" onchange="updateSubjects()">
+      <option value="">--Select Semester--</option>
+    </select>
+  </div>
+  </div>
+  <div >
+      <div class="resultForm">
+    <label for="subject" class="input-label">Select Subject:</label>
+    <select id="subject" class="form-input">
+      
+    </select>
+  <input type="text" class="manualSub" id="manualSubject" placeholder="Enter subject manually" style="display: none;">
+  </div>
+  </div>
+  <div>
+    <label for="marks" class="input-label">Marks</label>
+    <input type="number" id="marks" class="form-input">
+  </div>
+  <div>
+    <label for="grade" class="input-label">Grade</label>
+    <input type="text" id="grade" class="form-input" placeholder="e.g. A, B, C ,F" readonly>
+  </div>
+     
+     <div class="button-box">
+      <button type="submit" class="form-btn">Submit Result</button>
+      <button type="reset" class="form-btn btn-cancel">Cancel</button>
     </div>
-    <div class="form-check d-flex flex-row align-items-center ms-2">
-      <input class="form-check-input" type="radio" name="status" id="fail" value="Fail">
-      <label class="form-check-label" for="fail">
-        Fail
-      </label>
-    </div>
-  </div>
-   <div class="button-box">
-    <button type="submit" class="form-btn w-100">Submit Result</button>
-  </div>
+</div>
         </form>
      </div>
+     <div class="table-section mt-5">
+  <div class="table-wrapper">
+
+      <table class="table table-bordered ">
+        <thead>
+          <tr >
+            <th>Name</th>
+            <th>Enrollment</th>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Grade</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+      
+
+          <tbody id="resultTableBody" class="resultTable"></tbody>
+    
+      </table>
+  </div>
+</div>
     </div>
    
   </div>

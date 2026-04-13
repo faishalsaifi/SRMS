@@ -1,6 +1,7 @@
 // Tab switching logic
 document.getElementById("loginTab").addEventListener("click", () => {
   document.getElementById("loginFormHtml").style.display = "block";
+  document.getElementById("roleContainer").style.display = "none";
   document.getElementById("signupForm").style.display = "none";
   document.getElementById("forgotForm").style.display = "none";
   document.getElementById("loginTab").classList.add("active");
@@ -9,6 +10,7 @@ document.getElementById("loginTab").addEventListener("click", () => {
 
 document.getElementById("signupTab").addEventListener("click", () => {
   document.getElementById("signupForm").style.display = "block";
+  document.getElementById("roleContainer").style.display = "block";
   document.getElementById("loginFormHtml").style.display = "none";
   document.getElementById("forgotForm").style.display = "none";
   document.getElementById("signupTab").classList.add("active");
@@ -16,6 +18,7 @@ document.getElementById("signupTab").addEventListener("click", () => {
 });
 document.getElementById("signUpBtn").addEventListener("click", () => {
   document.getElementById("signupForm").style.display = "block";
+  document.getElementById("roleContainer").style.display = "block";
   document.getElementById("loginFormHtml").style.display = "none";
   document.getElementById("forgotForm").style.display = "none";
   document.getElementById("signupTab").classList.add("active");
@@ -36,6 +39,7 @@ particlesJS.load('particles-js', 'particles.json', () => {
 document.getElementById("sendOtpBtn").addEventListener("click", async () => {
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
+  const role = document.querySelector('input[name="role"]:checked').value;
 
   if (!name || !email) {
     alert("Please fill in name and email.");
@@ -43,10 +47,10 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch("https://backend-ehm8.onrender.com/api/auth/send-otp-signup", {
+    const res = await fetch("http://localhost:5000/api/auth/send-otp-signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email })
+     body: JSON.stringify({ name, email, role })
     });
 
     const data = await res.json();
@@ -80,18 +84,25 @@ document.getElementById("signupFormHtml").addEventListener("submit", async funct
   const otp = document.getElementById("signupOtp").value;
 
   try {
-    const res = await fetch("https://backend-ehm8.onrender.com/api/auth/verify-otp-signup", {
+    const res = await fetch("http://localhost:5000/api/auth/verify-otp-signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password, otp })
+      body: JSON.stringify({ email, password, otp })
     });
 
     const data = await res.json();
     if (res.ok && data.token) {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("userId", data.user?.id || '');
-      window.location.href = "dashboard.html";
-    } else {
+     localStorage.setItem("token", data.token);
+localStorage.setItem("user", JSON.stringify(data.user));
+
+if (data.user.role === "Admin") {
+  window.location.href = "dashboard.html";
+} else {
+  window.location.href = "student-dashboard.html";
+}
+      
+    }
+     else {
       alert(data.message || "Signup failed");
     }
   } catch (err) {
@@ -108,20 +119,27 @@ document.getElementById("loginFormHtml").addEventListener("submit", async functi
   const password = document.getElementById('loginPass').value;
 
   try {
-    const res = await fetch('https://backend-ehm8.onrender.com/api/auth/login', {
+    const res = await fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
     });
 
     const data = await res.json();
+if (res.ok && data.token) {
+  localStorage.setItem("token", data.token);
 
-    if (res.ok && data.token) {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("userId", data.user?.id || ''); // Optional: update this if your backend sends user
+  // ✅ store full user
+  localStorage.setItem("user", JSON.stringify(data.user));
 
-      window.location.href = "dashboard.html";
-    } else {
+  // 🔥 role-based redirect
+  if (data.user.role === "Admin") {
+    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "student-dashboard.html";
+  }
+}
+   else {
       alert(data.message || "Login failed");
     }
   } catch (err) {
@@ -137,7 +155,7 @@ document.getElementById("checkResultBtn").addEventListener("click", async () => 
   }
 
   try {
-    const res = await fetch(`https://backend-ehm8.onrender.com/api/results/public/${enrollNo}`);
+    const res = await fetch(`http://localhost:5000/api/results/public/${enrollNo}`);
     const data = await res.json();
 
     if (res.ok) {
@@ -161,7 +179,7 @@ document.getElementById("forgotFormHtml").addEventListener("submit", async funct
   // 1️⃣ First phase: Send OTP
   if (otpField.style.display === "none") {
     try {
-      const res = await fetch("https://backend-ehm8.onrender.com/api/auth/forgot-password", {
+      const res = await fetch("http://localhost:5000/api/auth/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
@@ -186,7 +204,7 @@ document.getElementById("forgotFormHtml").addEventListener("submit", async funct
     const newPassword = newPassField.value;
 
     try {
-      const res = await fetch("https://backend-ehm8.onrender.com/api/auth/verify-otp", {
+      const res = await fetch("http://localhost:5000/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp, newPassword })
