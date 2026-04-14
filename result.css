@@ -47,7 +47,7 @@ body{
     align-items: center;
 }
 .header-middle span{
-    color: #4A90E2;
+    color: #e2e8f0;
 }
 .header-right-btn{
     background: none;
@@ -131,9 +131,9 @@ overflow: hidden;
 .form-head{
 font-size: 0.81rem;
 padding-top: 0.5rem;
-padding-left:0.5rem ;
+
 text-align: left;
-color: #fff;
+color: #e2e8f0;
 font-weight: 600;
 }
 .resultForm{
@@ -249,7 +249,7 @@ gap: 0.5rem;
     padding: 0.5rem 0.5rem;
     border-radius:0.5rem;
      background: #2563eb!important;
-     color: #fff;
+     color: #e2e8f0;
     border: none;
   font-size: 0.68rem;
     font-family: "Poppins", sans-serif !important;
@@ -320,6 +320,7 @@ font-weight: 500;
     padding: 0.25rem 0.625rem;
     border-radius: 0.43rem;
     font-size: 0.6875rem;
+    height: fit-content;
     font-weight: 500;
 }
 .edit{

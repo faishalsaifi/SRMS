@@ -363,40 +363,35 @@ async function editResult(id) {
 
     const data = await res.json();
 
-    // basic fields
+    // ✅ Fill form
     document.getElementById("enroll").value = data.enrollment_no;
     document.getElementById("marks").value = data.marks;
     document.getElementById("grade").value = data.grade;
 
-    // 🔥 SET COURSE FIRST
+    // 🔥 Fill course first
     document.getElementById("course").value = data.course_id;
 
-    // 🔥 LOAD SEMESTERS
+    // 🔥 Trigger semesters
     updateSemesters();
 
-    // 🔥 WAIT THEN SET SEMESTER
-    setTimeout(() => {
-      document.getElementById("semester").value = data.semester;
+    // 🔥 Fill semester
+    document.getElementById("semester").value = data.semester;
 
-      // 🔥 LOAD SUBJECTS AFTER SEMESTER
-      updateSubjects();
+    // 🔥 Trigger subjects
+    updateSubjects();
 
-      // 🔥 HANDLE SUBJECT (dropdown or manual)
-      setTimeout(() => {
-        const subjectSelect = document.getElementById("subject");
-        const manualInput = document.getElementById("manualSubject");
+    // 🔥 Handle subject
+    const subjectDropdown = document.getElementById("subject");
 
-        if ([...subjectSelect.options].some(opt => opt.value === data.subject)) {
-          subjectSelect.value = data.subject;
-          manualInput.style.display = "none";
-        } else {
-          subjectSelect.style.display = "none";
-          manualInput.style.display = "block";
-          manualInput.value = data.subject;
-        }
-      }, 100);
+    if ([...subjectDropdown.options].some(opt => opt.value === data.subject)) {
+      subjectDropdown.value = data.subject;
+    } else {
+      document.getElementById("manualSubject").style.display = "block";
+      document.getElementById("manualSubject").value = data.subject;
+    }
 
-    }, 100);
+    // 🔥 IMPORTANT: email (you were missing this)
+    document.getElementById("email").value = data.email || "";
 
     window.editingId = id;
 
@@ -406,7 +401,6 @@ async function editResult(id) {
     console.error("Edit error:", err);
   }
 }
-
 window.addEventListener("DOMContentLoaded", () => {
   loadCourses();
   loadResults();

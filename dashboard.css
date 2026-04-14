@@ -24,7 +24,7 @@ body{
     grid-template-columns: auto auto auto;
 }
 .header-left div,.navbar-brand div{
-    color: #4A90E2;
+    color: #60a5fa;
   font-size: clamp(1rem, 1.8vw, 1.5rem);
     display: flex;
     width: fit-content;
@@ -50,7 +50,7 @@ body{
     align-items: center;
 }
 .header-middle span{
-    color: #4A90E2;
+    color: #e2e8f0;
 }
 .header-right-btn{
     background: none;
@@ -177,7 +177,7 @@ body{
 
 .navbar{
      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
- background: #fff;
+ background: #0f2040;
     }
 .offcanvas-title{
       font-family: "Cal Sans", sans-serif;

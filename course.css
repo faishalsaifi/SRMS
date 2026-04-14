@@ -10,10 +10,11 @@
    
     gap: 0.5rem;
 }
+
 .addCourseBtn ,.resetFormBtn{
     width: fit-content;
     background: #2563eb;
-    color: #fff;
+    color: #e2e8f0;
     font-size: 0.6875rem;
     border: none;
     border-radius: 0.43rem;
@@ -24,14 +25,70 @@ background: transparent !important;
 color: #60a5fa;
 border: 1px solid rgba(59,130,246,0.32);
 }
-
+.courseCards{
+    display: grid;
+      max-height: 70vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 0.5rem;
+}
+.courseCards::-webkit-scrollbar{
+    width: 0px;
+}
 .course-card{
     background: rgba(15, 32, 64, 0.97);
+    padding: 1rem 1rem;
+    border-radius: 0.65rem;
+    border: 1px solid rgba(59,130,246,0.18);
     
 }
-.course-card h5{
-    color: #fff;
+
+.card-top ,.card-middle ,.card-bottom{
+    display: flex;
+  gap: 1rem;
+    align-items: start;
+    position: relative;
+}
+.card-top{
+    justify-content: space-between;
+}
+.card-top div{
+display: flex;
+flex-direction: column;
+  align-items: start;
+}
+.card-middle{
+    border-top:1px solid rgba(59, 130, 246, 0.18);
+    padding-top: 0.65rem;
+}
+
+.cardCourseName{
+    color: #e2e8f0;
+    text-align: left;
+    font-size: 0.81rem;
+    font-weight: 600;
 }
 .course-card p{
-    color: #64748b;
+    color: #e2e8f0;
+    display: flex;
+    margin-bottom: 0.5rem !important;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 0.81rem;
+    
+}
+.card-middle p:last-child{
+    color: #2563eb !important;
+}
+.courseCodeFloat{
+  
+        background: rgba(59, 130, 246, 0.15);
+        padding: 0.2rem 0.5rem;
+        border-radius: 1.25rem;
+    color: #60a5fa !important;
+}
+.courseCode ,.durationText{
+    color: #64748b !important;
+    font-size: 0.7rem !important;
 }

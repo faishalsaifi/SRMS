@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course</title>
+    <title>Add Result</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 <link rel="stylesheet" href="result.css">
-<link rel="stylesheet" href="course.css">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
     </head>
@@ -15,7 +14,7 @@
         <div class="header-left">
             <div><i class="fa-solid fa-circle-user"></i> <span>SRMS | <span id="userName" class="username"></span> </span></span></div>
         </div>
-        <div class="header-middle"><span>Course Management</span>!</div>
+        <div class="header-middle"><span>Result Management</span>!</div>
         <div class="header-right">
 <button class="header-right-btn logoutBtn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> log-out </button>
         </div>
@@ -28,7 +27,7 @@
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Course Management<span id="userNameMobNav" class="username"></span></h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Result Management<span id="userNameMobNav" class="username"></span></h5>
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
@@ -48,8 +47,8 @@
               Student
             </a>
             <ul class="dropdown-menu">
-              <li>  <a href="result.html" class="left-link"><span>▤</span><span>Result</span></a></li>
-              <li><a href="Course.html" class="left-link active"><span>▣</span><span>Courses</span></a></li>
+              <li>  <a href="#" class="left-link active"><span>▤</span><span>Result</span></a></li>
+              <li><a href="Course.html" class="left-link"><span>▣</span><span>Courses</span></a></li>
               <li><a href="Notification.html" class="left-link"><span>◎</span><span>Notifications</span></a></li>
               <li><a href="Feedback.html" class="left-link"><span>◈</span><span>Feedback</span></a></li>
               
@@ -74,63 +73,102 @@
     
         
           
-            <a href="result.html" class="left-link "><span>▤</span><span>Result</span></a>
-            <a href="Course.html" class="left-link active"><span>▣</span><span>Courses</span></a>
+            <a href="#" class="left-link active"><span>▤</span><span>Result</span></a>
+            <a href="Course.html" class="left-link"><span>▣</span><span>Courses</span></a>
             <a href="Notification.html" class="left-link"><span>◎</span><span>Notifications</span></a>
             <a href="Feedback.html" class="left-link"><span>◈</span><span>Feedback</span></a>
  
    
     </div>
     <div class="col-md-9 d-flex justify-content-start flex-column right p-3">
-     <div class="container mt-4">
-  <h3 class="form-head">Add Course</h3>
+     <div class="form-container">
+        <form action="#" class="add-form">
+<h3 class="form-head">Add Result</h3>
+<div class="form-grid">
 
-  <!-- Add Course -->
-  <form id="courseForm" class="courseForm">
-    <div>
-        
-        <input type="text" class="form-input" id="courseName" placeholder="Course Name" required>
-        <input type="text" class="form-input"  id="courseCode" placeholder="Course Code" required>
-        <input type="text" class="form-input"  id="duration" placeholder="Duration (e.g. 3 years)" required>
-    </div>
-    <div>
-
-        <button type="submit" class="addCourseBtn mt-3">Add Course</button>
-        <button type="reset" class="resetFormBtn mt-3">Cancel</button>
-    </div>
-  </form>
-  <div class="courseCards mt-4" id="courseCards"></div>
-
-  <hr>
-
+  <div>
+  <label for="email" class="input-label">Email</label>
+    <input type="email" class="form-input" id="email" placeholder="Enter student email" required>
+  </div>
+  <div>
+  <label for="studentName" class="input-label">Name</label>
+    <input type="text" class="form-input" id="studentName" placeholder="Student Name" readonly >
+  </div>
+  <div>
+      <label for="enroll" class="input-label"> Enrollment no.</label>
+      <input type="text" id="enroll"  class="form-input" > 
+  </div>
   
+  
+  
+  <div>
+      <div action="">
+          <label for="course" class="input-label">Select Course:</label>
+    <select id="course" class="form-input" onchange="updateSemesters()">
+      <option value="">--Select Course--</option>
+      
+    </select>
+  </div>
+  </div>
+  <div >
+  <div class="resultForm" id="resultForm">
+     <label for="semester" class="input-label">Select Semester:</label>
+    <select id="semester" class="form-input" onchange="updateSubjects()">
+      <option value="">--Select Semester--</option>
+    </select>
+  </div>
+  </div>
+  <div >
+      <div class="resultForm">
+    <label for="subject" class="input-label">Select Subject:</label>
+    <select id="subject" class="form-input">
+      
+    </select>
+  <input type="text" class="manualSub" id="manualSubject" placeholder="Enter subject manually" style="display: none;">
+  </div>
+  </div>
+  <div>
+    <label for="marks" class="input-label">Marks</label>
+    <input type="number" id="marks" class="form-input">
+  </div>
+  <div>
+    <label for="grade" class="input-label">Grade</label>
+    <input type="text" id="grade" class="form-input" placeholder="e.g. A, B, C ,F" readonly>
+  </div>
+     
+     <div class="button-box">
+      <button type="submit" class="form-btn">Submit Result</button>
+      <button type="reset" class="form-btn btn-cancel">Cancel</button>
+    </div>
 </div>
+        </form>
+     </div>
+     <div class="table-section mt-5">
+  <div class="table-wrapper">
 
-<script src="Course.js"></script>
+      <table class="table table-bordered ">
+        <thead>
+          <tr >
+            <th>Name</th>
+            <th>Enrollment</th>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Grade</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+      
+
+          <tbody id="resultTableBody" class="resultTable"></tbody>
+    
+      </table>
+  </div>
+</div>
     </div>
    
   </div>
 </div>
-<!-- EDIT COURSE MODAL -->
-<div id="editCourseModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:999;">
-  
-  <div style="background:#fff; padding:20px; border-radius:10px; width:300px;">
-    <h4>Edit Course</h4>
-
-    <input type="text" id="editCourseName" placeholder="Course Name" class="form-control mb-2">
-
-    <!-- 🔥 LOCKED CODE -->
-    <input type="text" id="editCourseCode" class="form-control mb-2" readonly>
-
-    <input type="text" id="editCourseDuration" placeholder="Duration" class="form-control mb-3">
-
-    <div style="display:flex; gap:10px;">
-      <button onclick="updateCourse()" class="btn btn-success btn-sm">Save</button>
-      <button onclick="closeEditModal()" class="btn btn-secondary btn-sm">Cancel</button>
-    </div>
-  </div>
-
-</div>
+<script src="result.js"defer></script>
 <script src="dashboard.js"defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f44e101240.js" crossorigin="anonymous"></script>
