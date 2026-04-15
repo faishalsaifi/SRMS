@@ -1,0 +1,72 @@
+.feedbackFormTop ,.feedbackFormTopMiddle{
+    display: flex;
+    justify-content: left;
+    gap: 0.5rem;
+   
+    width: 100%;
+    align-items: center;
+}
+.feedbackFormTopMiddle{
+    flex-direction: column;
+    align-items: first baseline;
+}
+.form-label{
+    margin: 0 !important;
+   font-size: 0.7rem;
+     text-align: left;
+      color: #94a3b8;
+}
+.feedbackForm{
+    background: rgba(15, 32, 64, 0.97);
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    padding: 1rem;
+    border-radius: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+
+}
+.rightHead{
+    
+    color: #e2e8f0;
+    text-align: left;
+    margin-bottom: 0 !important;
+
+    font-size: 0.95rem;
+
+}
+.card{
+   flex-direction: row-reverse;
+   background: rgba(15, 32, 64, 0.97);
+   border: 1px solid rgba(59, 130, 246, 0.18);;
+   justify-content: space-between;
+}
+.card div{
+    width: fit-content;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    color: rgb(226, 232, 240);
+}
+.star-rating span {
+  font-size: 28px;
+  cursor: pointer;
+  color: #ccc;
+  transition: 0.2s;
+}
+
+.star-rating span.active {
+  color: #60a5fa; 
+}
+.stars{
+    color: #60a5fa !important;
+}
+.star-rating span:hover {
+  transform: scale(1.2);
+}
+.feedbackList{
+    max-height: 30svh;
+    overflow-y: scroll;
+}
+.feedbackList::-webkit-scrollbar{
+    width: 0;
+}

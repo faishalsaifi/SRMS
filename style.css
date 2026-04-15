@@ -13,23 +13,11 @@ body{
 .panel{
     height: 100%;
     width: 100%;
-    display: grid;
-    
-    grid-template-columns: 1fr 1fr;
+  display: flex;
    
 }
-.left-panel{
-       flex: 1.1;
-    background: #0c1a2e;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem 2rem;
-    position: relative;
-    overflow: hidden;
-}
-.left-panel::before {
+
+.right-panel::before {
     content: '';
     position: absolute;
     width: 320px;
@@ -39,7 +27,7 @@ body{
     top: -80px;
     left: -80px;
 }
-.left-panel::after {
+.right-panel::after {
     content: '';
     position: absolute;
     width: 240px;
@@ -51,14 +39,14 @@ body{
 }
 .right-panel{
    
-    background: rgba(255, 255, 255, 0.7); /* Translucent white */
+    background: #0c1a2e ;
     backdrop-filter: blur(15px);           /* The "frost" effect */
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
+
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
 }
-.left-panel, .right-panel {
+ .right-panel {
  display: flex;
  position: relative;
  flex-direction: column;
@@ -78,8 +66,9 @@ body{
     width: 180px;
     height: 180px;
     border-radius: 50%;
+
     background: #f0e6d6;
-    opacity: .6;
+    opacity: .2;
     pointer-events: none;
 }
 .right-deco2{
@@ -91,17 +80,10 @@ body{
     border-radius: 50%;
 
     background: #e8d5c0;
-    opacity: .4;
+    opacity: .1;
     pointer-events: none;
 }
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
+
 .role-container {
   margin-top: 10px;
 
@@ -112,7 +94,7 @@ body{
 .role-toggle {
   position: relative;
   display: flex;
-  background:#f0e6d6;
+  background:rgb(10, 22, 40);
   border-radius: 30px;
   overflow: hidden;
   width: 220px;
@@ -131,7 +113,8 @@ body{
   cursor: pointer;
   z-index: 2;
   font-weight: 500;
-  color: #0c1a2e;
+  color: #fff;
+  font-size: 0.8rem;
   transition: 0.3s;
 }
 
@@ -143,7 +126,7 @@ body{
   position: absolute;
   width: 50%;
   height: 100%;
-  background: #0c1a2e;
+  background: #1d4ed8 ;
   border-radius: 30px;
   top: 0;
   left: 0;
@@ -175,21 +158,7 @@ body{
         padding: 1.25rem;
     max-width: 240px;
 }
-.brand-icon{
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: rgba(55, 138, 221, 0.18);
-    border: 1px solid rgba(55, 138, 221, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.25rem;
-}
-.brand-icon svg {
-    width: 26px;
-    height: 26px;
-}
+
 .checkEnr:focus{
     outline: none;
 }
@@ -233,6 +202,8 @@ input, select{
 }
 .form-parent{
       border :1px solid #3b82f62e;
+     
+      background: rgba(15, 32, 64, 0.97);;
       padding: 1rem 1rem;
     position: relative;
 
@@ -282,32 +253,41 @@ input, select{
     grid-template-columns: 1fr 1fr;
     position: relative;
 overflow: hidden;
-
+background: #0a1628;
+border-radius: 0.4rem;
+color: #94a3b8;
+border: 1px solid rgba(59, 130, 246, 0.18);;
 
     height: fit-content;
     padding: none !important;
 }
 
-.active{
-    border-bottom: 2px solid #e8d5c0 !important;
-    color: #e8d5c0;
-    position: relative;
-}
+
 
 .tabs button {
   margin: none !important;
   background: none;
   border:none;
-  border-bottom: 2px solid rgb(255, 255, 255,0.2);
+  color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.32);
+
   font-family: "Poppins", sans-serif !important;
   z-index: 1;
-  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+ 
+  padding: 0.3rem 1rem;
   position: relative;
+}
+.active{
+    
+    background: #1d4ed8 !important;
+    color:#fff !important;
+    position: relative;
 }
 .formLabel ,.signUpBtn{
     font-family: "Poppins", sans-serif !important;
-    color: #0c1a2e;
-    font-size: clamp(0.8rem, 2vw, 1rem); 
+    color: #94a3b8;
+   font-size: clamp(0.6rem, 1vw, 0.7rem);
 }
 .formInput{
      font-family: "Poppins", sans-serif !important;
@@ -333,29 +313,36 @@ overflow: hidden;
 .signUpLink{
      font-family: "Poppins", sans-serif !important;
      display: flex;
-     color: #0c1a2e;
-     font-size: clamp(0.8rem, 2vw, 1rem); 
-     justify-content: space-between;
+     flex-direction: column;
+     color: #94a3b8;
+     font-size: 0.7rem;
+    
 }
 .signUpBtn ,.forgot{
     background: none;
     font-family: "Poppins", sans-serif !important;
     margin-left: 0.5rem;
-    color: #e8d5c0;
+    color: #60a5fa;
     border: none;
 }
+.forgotText{
+ color: #94a3b8;
+   font-size: 0.75rem;
+}
 .forgot{
-    color: #0c1a2e;
+    color: #60a5fa;
+    font-size: 0.75rem;
+    margin-left: 0;
     transition: color .4s ease;
     text-transform: capitalize;
 }
 .forgot:hover{
-    color: #4A90E2;
+    color: #fff;
 }
 .formBtn {
      padding: 0.5rem 0.5rem;
     border-radius:0.5rem;
-     background: #0c1a2e !important;
+     background: #2563eb !important;
 box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
      color: #fff;
      margin-top: 1rem;
@@ -372,7 +359,7 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 
   .panel {
     grid-template-columns: 1fr;
   }
- .left-panel ,.right-panel{
-    height: 80svh;
+ .right-panel{
+    height: 100svh;
  }
 }

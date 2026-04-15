@@ -11,26 +11,7 @@
 <body>
     <div class="panel p-none">
        
-                <div class="left-panel">
-<div class="studentCheck">
-  <div class="brand-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 3L2 8L12 13L22 8L12 3Z" stroke="#7ab8f0" stroke-width="1.5" stroke-linejoin="round"></path>
-          <path d="M2 16L12 21L22 16" stroke="#7ab8f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M2 12L12 17L22 12" stroke="rgba(122,184,240,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </div>
-      <h2 class="checkHead">Check Your Result</h2>
-      <p class="checkhead-desc">Access your results and grades without login</p>
-      <div class="left-panel-box">
-<p class="panel-box-head">Quick result check</p>
-        <input type="text" id="studentEnrollInput" class="formInput checkEnr" placeholder="Enter your Enrollment no. ...">
-        <button class="checkBtn " id="checkResultBtn">Check Result</button>
-      </div>
-</div>
-<!-- <div id="particles-js">
-       </div> -->
-                </div>
+                
            
            
                 <div class="right-panel">
@@ -58,7 +39,7 @@
 <button id="loginTab" class="loginBtn active">Login</button>
 <button id="signupTab">Signup</button>
 </div>
-    <div id="loginFormHtml" class="loginForm">
+    <div id="loginFormHtml" class="loginForm mt-3">
       <!-- <h2>Login</h2> -->
       <form>
         <label for="loginEmail" class="formLabel"><i class="fa-solid fa-envelope"></i> Your Email</label>
@@ -69,14 +50,15 @@
         <div>
             Dont have an account?<button id="signUpBtn" class="signUpBtn"> SignUp</button>
         </div>
-        <div>
-            <button class="forgot" id="forgot">forgot password</button>
-        </div>
-    </div>
         <button type="submit" class="formBtn">Login</button>
+      </div>
+      <div>
+        <span class="forgotText">Forgot password ?</span>
+          <button class="forgot" id="forgot">Reset via OTP</button>
+      </div>
       </form>
 </div>
-<div id="signupForm" class="signupForm" style="display: none;">
+<div id="signupForm" class="signupForm mt-3" style="display: none;">
   <!-- <h2>SignUp</h2> -->
   <form id="signupFormHtml">
   <label for="name" id="nameLab" class="formLabel"><i class="fa-solid fa-user-tie"></i> Your Full Name</label>
@@ -95,7 +77,7 @@
   <button type="submit" id="createAccountBtn" class="formBtn" style="display:none">Verify & Create Account</button>
 </form>
 </div></div>
-<div id="forgotForm" class="forgotForm" style="display: none;">
+<div id="forgotForm" class="forgotForm mt-3" style="display: none;">
   <h2>Forgot Password</h2>
   <form id="forgotFormHtml">
   <input type="email" id="forgotEmail" class="formInput" placeholder="Enter your email" />

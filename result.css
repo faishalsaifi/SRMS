@@ -270,7 +270,7 @@ gap: 0.5rem;
     --bs-table-bg: transparent !important;
     font-size: 0.75rem;
 }
-tbody, td, tfoot, th, thead, tr {
+tbody, td, tfoot, th, tr {
     border-style:none !important;
 }
 thead,

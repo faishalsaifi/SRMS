@@ -146,29 +146,7 @@ if (res.ok && data.token) {
     console.error("Login error:", err);
   }
 });
-document.getElementById("checkResultBtn").addEventListener("click", async () => {
-  const enrollNo = document.getElementById("studentEnrollInput").value.trim();
 
-  if (!enrollNo) {
-    alert("Please enter your enrollment number.");
-    return;
-  }
-
-  try {
-    const res = await fetch(`http://localhost:5000/api/results/public/${enrollNo}`);
-    const data = await res.json();
-
-    if (res.ok) {
-      localStorage.setItem("enrollNo", enrollNo);
-      window.location.href = "singleResult.html"; // ✅ redirect to result page
-    } else {
-      alert(data.message || "Result not found.");
-    }
-  } catch (err) {
-    console.error("Check result error:", err);
-    alert("Something went wrong.");
-  }
-});
 document.getElementById("forgotFormHtml").addEventListener("submit", async function (e) {
   e.preventDefault();
 

@@ -1,0 +1,124 @@
+
+.brand-icon{
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(55, 138, 221, 0.18);
+    border: 1px solid rgba(55, 138, 221, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+}
+.brand-icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.9rem;
+    background: rgba(55, 138, 221, 0.18);
+    border: 1px solid rgba(55, 138, 221, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 ;
+}
+.brand-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.right{
+    flex-direction: column;
+}
+.right-top{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.right-top h4{
+    color: #e2e8f0;
+    text-align: bottom;
+    margin-bottom: 0 !important;
+    font-size: 0.95rem;
+}
+
+.resultSem{
+    color: #94a3b8 !important;
+}
+thead{
+   position: relative;
+;
+}
+thead::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: rgba(59, 130, 246, 0.18);;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.dashTable ,.NotificationTab{
+    background: #0f2040;
+    border: 1px solid rgba(59,130,246,0.18);
+    border-radius: 0.5rem;
+    border-collapse: unset;
+   
+}
+.NotificationTab{
+    padding: 1rem 0.5rem;
+}
+.NotificationTab h4{
+    color: #fff;
+    text-align: left;
+        font-size: 0.95rem;
+}
+.card{
+    background: none;
+    flex-direction: row;
+    gap: 0.5rem;
+      border: 1px solid rgba(59, 130, 246, 0.18);
+    color: #e2e8f0;
+
+}
+.notification-card-left{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0.45rem;
+    font-size: 0.85rem;
+    margin: auto 0;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(59, 130, 246, 0.1);
+
+}
+.notification-card-right{
+    display: flex;
+    width: calc(100% - 2rem);
+    flex-direction: column;
+    align-items: start;
+}
+ .notif-title {
+  font-weight: 600;
+  font-size: 14px;
+  
+  color: #e2e8f0;
+ 
+}
+
+.notif-message {
+    font-size: 0.7rem;
+  
+    color: #94a3b8;
+}
+
+.notif-date {
+   color: #94a3b8;
+    font-size: 0.7rem;
+    width: fit-content;
+
+}
+
