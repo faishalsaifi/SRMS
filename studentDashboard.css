@@ -30,24 +30,16 @@
 }
 .right-top{
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column;
+   
     align-items: center;
     justify-content: center;
-}
-.right-top h4{
-    color: #e2e8f0;
-    text-align: bottom;
-    margin-bottom: 0 !important;
-    font-size: 0.95rem;
 }
 
 .resultSem{
     color: #94a3b8 !important;
 }
-thead{
-   position: relative;
-;
-}
+
 thead::after{
     content: '';
     position: absolute;
@@ -59,21 +51,8 @@ thead::after{
     left: 50%;
     transform: translateX(-50%);
 }
-.dashTable ,.NotificationTab{
-    background: #0f2040;
-    border: 1px solid rgba(59,130,246,0.18);
-    border-radius: 0.5rem;
-    border-collapse: unset;
-   
-}
-.NotificationTab{
-    padding: 1rem 0.5rem;
-}
-.NotificationTab h4{
-    color: #fff;
-    text-align: left;
-        font-size: 0.95rem;
-}
+
+
 .card{
     background: none;
     flex-direction: row;
@@ -82,43 +61,7 @@ thead::after{
     color: #e2e8f0;
 
 }
-.notification-card-left{
-    height: 2rem;
-    width: 2rem;
-    border-radius: 0.45rem;
-    font-size: 0.85rem;
-    margin: auto 0;
-    color: #e2e8f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(59, 130, 246, 0.1);
 
-}
-.notification-card-right{
-    display: flex;
-    width: calc(100% - 2rem);
-    flex-direction: column;
-    align-items: start;
-}
- .notif-title {
-  font-weight: 600;
-  font-size: 14px;
-  
-  color: #e2e8f0;
- 
-}
 
-.notif-message {
-    font-size: 0.7rem;
-  
-    color: #94a3b8;
-}
 
-.notif-date {
-   color: #94a3b8;
-    font-size: 0.7rem;
-    width: fit-content;
-
-}
 

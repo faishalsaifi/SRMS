@@ -1,0 +1,273 @@
+
+.form-container{
+    width: 100%;
+    padding: 1rem 1rem;
+    background: rgba(15, 32, 64, 0.97);
+    border: 1px solid rgba(59, 130, 246, 0.18);;
+     flex: 0 0 auto;
+    
+   
+}
+
+
+.form-head{
+font-size: 0.81rem;
+padding-top: 0.5rem;
+
+text-align: left;
+color: #e2e8f0;
+font-weight: 600;
+}
+
+
+
+.input-label{
+    font-family: "Poppins", sans-serif !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #94a3b8;
+    font-size: 0.68rem;
+
+}
+
+.form-input ,.manualSub{
+    font-family: "Poppins", sans-serif !important;
+    width: 100%;
+    background: #0a1628;
+    border-radius: 0.3rem;
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    border: 1px solid rgba(59,130,246,0.18);
+    padding: 0.3rem 0rem 0.3rem 0.5rem;
+}
+
+.form-input:focus ,.manualSub:focus{
+    outline: none;
+}
+
+.resultGrade span{
+    padding: 0.3rem 0.5rem;
+    border-radius: 30%;
+}
+.resultSub{
+    color: #94a3b8 !important;
+
+}
+/* Grade A */
+.grade-a {
+  color: #10b981 !important; /* green */
+  font-weight: bold;
+}
+.grade-green{
+    background: rgb(16, 185, 129,0.15) !important;
+
+}
+/* Grade B */
+.grade-b {
+  color: #60a5fa !important; /* yellow */
+  font-weight: bold;
+}
+.grade-blue{
+    background: rgb(96, 165, 250,0.15) !important;
+
+}
+/* Grade C */
+.grade-c {
+  color: #fff !important; /* red */
+  font-weight: bold;
+}
+.grade-white{
+    background: rgba(255,255,255,0.15) !important;
+
+}
+.grade-f{
+    color: #ef4444 !important;
+     font-weight: bold;
+    }
+    .grade-red{
+    background: rgb(239, 68, 68,0.15) !important;
+
+}
+.input-label{
+    width: fit-content;
+    
+}
+
+
+.form-btn{
+    padding: 0.5rem 0.5rem;
+    border-radius:0.5rem;
+     background: #2563eb!important;
+     color: #e2e8f0;
+    border: none;
+  font-size: 0.68rem;
+    font-family: "Poppins", sans-serif !important;
+
+}
+
+
+.table{
+    --bs-table-bg: transparent !important;
+    font-size: 0.75rem;
+}
+tbody, td, tfoot, th, tr {
+    border-style:none !important;
+}
+thead,
+thead tr,
+thead th {
+  background-color: transparent !important;
+  color: #64748b !important;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: relative;
+  
+}
+
+.tableBtn{
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.43rem;
+    font-size: 0.6875rem;
+    height: fit-content;
+    font-weight: 500;
+}
+.edit{
+    background: transparent;
+    color: #60a5fa;
+    border: 1px solid rgba(59,130,246,0.32);
+}
+.del{
+    background: rgba(239, 68, 68, 0.12);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.course-card{
+    background: rgba(15, 32, 64, 0.97);
+    padding: 1rem 1rem;
+    border-radius: 0.65rem;
+    border: 1px solid rgba(59,130,246,0.18);
+    
+}
+
+.card-top ,.card-middle ,.card-bottom{
+    display: flex;
+  gap: 1rem;
+    align-items: start;
+    position: relative;
+}
+.card-top{
+    justify-content: space-between;
+}
+.card-top div{
+display: flex;
+flex-direction: column;
+  align-items: start;
+}
+.card-middle{
+    border-top:1px solid rgba(59, 130, 246, 0.18);
+    padding-top: 0.65rem;
+}
+
+.cardCourseName{
+    color: #e2e8f0;
+    text-align: left;
+    font-size: 0.81rem;
+    font-weight: 600;
+}
+.course-card p{
+    color: #e2e8f0;
+    display: flex;
+    margin-bottom: 0.5rem !important;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 0.81rem;
+    
+}
+.card-middle p:last-child{
+    color: #2563eb !important;
+}
+.courseCodeFloat{
+  
+        background: rgba(59, 130, 246, 0.15);
+        padding: 0.2rem 0.5rem;
+        border-radius: 1.25rem;
+    color: #60a5fa !important;
+}
+.courseCode ,.durationText{
+    color: #64748b !important;
+    font-size: 0.7rem !important;
+}
+.stars{
+    color: #60a5fa;
+    text-align: left;
+}
+.feedtext {
+    text-align: left;
+    text-transform: capitalize;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+.card{
+    display: flex;
+  
+    background: rgba(15, 32, 64, 0.97);
+    border: 1px solid rgba(59, 130, 246, 0.18);
+   
+}
+.dashTable ,.NotificationTab{
+    background: #0f2040;
+    border: 1px solid rgba(59,130,246,0.18);
+    border-radius: 0.5rem;
+    border-collapse: unset;
+   
+}
+.NotificationTab{
+    padding: 1rem 0.5rem;
+}
+.notification-card-left{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 0.45rem;
+    font-size: 0.85rem;
+    margin: auto 0;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(59, 130, 246, 0.1);
+
+}
+.notification-card-right{
+    display: flex;
+    width: calc(100% - 2rem);
+    flex-direction: column;
+    align-items: start;
+}
+.notif-title {
+  font-weight: 600;
+  font-size: 14px;
+  width: fit-content;
+  color: #e2e8f0;
+ 
+}
+.notif-message {
+    font-size: 0.7rem;
+    width: fit-content;
+    color: #94a3b8;
+}
+.notif-date {
+   color: #94a3b8;
+    font-size: 0.7rem;
+    width: fit-content;
+
+}
+@media screen and (max-width:767px) {
+   
+.form-container{
+    padding-bottom: 1rem;
+}
+
+
+}

@@ -76,7 +76,7 @@ async function loadMyFeedback() {
       const card = `
         <div class="card p-2 mb-2">
           <div class="stars">${stars}</div>
-          <div>${fb.message}</div>
+          <div class="feedtext">${fb.message}</div>
         </div>
       `;
 

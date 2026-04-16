@@ -54,7 +54,7 @@ async function loadCourses() {
     const data = await res.json();
 
     const courseSelect = document.getElementById("course");
-
+courseSelect.innerHTML = '<option value="">--Select Course--</option>';
     data.forEach(course => {
       const option = document.createElement("option");
 
@@ -302,6 +302,8 @@ let method = "POST";
 
 // 🔥 If editing → update instead of add
 if (window.editingId) {
+   const confirmEdit = confirm("Update this result?");
+  if (!confirmEdit) return;
   url = `http://localhost:5000/api/results/update/${window.editingId}`;
   method = "PUT";
 }
@@ -343,6 +345,8 @@ const res = await fetch(url, {
     } 
     alert(window.editingId ? "Result updated ✅" : "Result added ✅");
 window.editingId = null;
+const courseSelect = document.getElementById("course");
+courseSelect.innerHTML = '<option value="">--Select Course--</option>';
     document.querySelector('.add-form').reset();
     loadResults();
 

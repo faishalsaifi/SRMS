@@ -1,0 +1,17 @@
+.feedbackCard {
+    background: none !important;
+    display: flex;
+  
+--bs-card-border-color: transparent !important;
+--bs-card-border-radius: 0 !important;
+border-bottom: 1px solid rgba(59,130,246,0.18);
+}
+
+
+.feedName{
+    font-size: 0.75rem;
+    text-align: center;
+    color: #e2e8f0;
+    text-transform: capitalize;
+    margin: 0 !important;
+}

@@ -37,9 +37,17 @@ particlesJS.load('particles-js', 'particles.json', () => {
 
 
 document.getElementById("sendOtpBtn").addEventListener("click", async () => {
+  
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const role = document.querySelector('input[name="role"]:checked').value;
+   const passkey = document.getElementById("adminPasskey")?.value || "";
+    
+  if (role === "Admin" && passkey !== "admin123") {
+    alert("Enter correct admin passkey");
+    return;
+  }
+
 
   if (!name || !email) {
     alert("Please fill in name and email.");
@@ -66,6 +74,7 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
       document.getElementById("emailLab").style.display = "none";
       document.getElementById("sendOtpBtn").style.display = "none";
       document.getElementById("signUpOtpLab").style.display = "block";
+       document.getElementById("adminPasskeyContainer").style.display = "none";
     } else {
       alert(data.message || "Failed to send OTP");
     }
@@ -74,7 +83,19 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
     alert("Something went wrong");
   }
 });
+document.querySelectorAll('input[name="role"]').forEach(radio => {
+  radio.addEventListener("change", () => {
+    const role = document.querySelector('input[name="role"]:checked').value;
+    
+    const passkeyDiv = document.getElementById("adminPasskeyContainer");
 
+    if (role === "Admin") {
+      passkeyDiv.style.display = "block";
+    } else {
+      passkeyDiv.style.display = "none";
+    }
+  });
+});
 document.getElementById("signupFormHtml").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -82,12 +103,14 @@ document.getElementById("signupFormHtml").addEventListener("submit", async funct
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const otp = document.getElementById("signupOtp").value;
+  const role = document.querySelector('input[name="role"]:checked').value;
+const passkey = document.getElementById("adminPasskey")?.value || "";
 
   try {
     const res = await fetch("http://localhost:5000/api/auth/verify-otp-signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, otp })
+      body: JSON.stringify({ email, password, otp , role, passkey})
     });
 
     const data = await res.json();

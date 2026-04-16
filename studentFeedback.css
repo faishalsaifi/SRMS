@@ -26,27 +26,12 @@
     align-items: first baseline;
 
 }
-.rightHead{
-    
-    color: #e2e8f0;
-    text-align: left;
-    margin-bottom: 0 !important;
 
-    font-size: 0.95rem;
-
-}
 .card{
    flex-direction: row-reverse;
-   background: rgba(15, 32, 64, 0.97);
-   border: 1px solid rgba(59, 130, 246, 0.18);;
    justify-content: space-between;
 }
-.card div{
-    width: fit-content;
-    font-size: 0.8rem;
-    text-transform: capitalize;
-    color: rgb(226, 232, 240);
-}
+
 .star-rating span {
   font-size: 28px;
   cursor: pointer;
@@ -57,9 +42,7 @@
 .star-rating span.active {
   color: #60a5fa; 
 }
-.stars{
-    color: #60a5fa !important;
-}
+
 .star-rating span:hover {
   transform: scale(1.2);
 }
