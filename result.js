@@ -198,7 +198,7 @@ async function loadResults() {
           <td class="resultSub">${result.subject}</td>
            <td class="resultMarks ${gradeClass}">${result.marks}</td>
   <td class="resultGrade ${gradeClass}"><span class="${gradeBack}">${result.grade}</span></td>
-          <td>
+          <td class="d-flex gap-2">
             <button class="tableBtn edit" onclick="editResult(${result.result_id})">Edit</button>
             <button class="tableBtn del" onclick="deleteResult(${result.result_id})">Del</button>
           </td>

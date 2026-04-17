@@ -8,7 +8,7 @@ async function loadCourses() {
 
     data.forEach(course => {
       const card = `
-        <div class="col-md-4 mb-3">
+        <div class="col-sm-6 col-md-4 mb-3">
 
       <div class="course-card">
 

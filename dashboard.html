@@ -6,25 +6,32 @@
     <title>Dashboard</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 <link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="components.css">
 <link rel="stylesheet" href="layout.css">
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
     </head>
 <body>
     <div class="header d-none d-md-grid">
         <div class="header-left">
-            <div><i class="fa-solid fa-circle-user"></i> <span>Edutrack | <span id="userName" class="username"></span> </span></div>
+            <div>
+              <span class="header-title">Edutrack</span>
+              <span class="header-sub">SRMS</span>
+
+            </div>
         </div>
-        <div class="header-middle"><span>Dashboard</span>!</div>
-        <div class="header-right">
-<button class="header-right-btn logoutBtn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> log-out </button>
-        </div>
+        <div class="header-right"><span>Dashboard</span></div>
+        
     </div>
     <nav class="navbar d-md-none">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><div><i class="fa-solid fa-circle-user"></i> <span>Edutrack | <span id="userNameMob" class="username"></span></span></div></a>
+    <a class="navbar-brand" href="#">
+      <div>
+         <span class="header-title">Edutrack</span>
+              <span class="header-sub">SRMS</span>
+      </div></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
@@ -38,7 +45,7 @@
               Main Category
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item active" href="#"><span>⊞</span><span>Dashboard</span></a></li>
+              <li><a class="left-link active" href="#"><span>⊞</span><span>Dashboard</span></a></li>
              
               
             </ul></li>
@@ -57,19 +64,30 @@
             
           </ul>
           <ul class="navbar-nav">
+            <div class="upill">
+              <div class="av">AD</div>
+              <div>
+                <div class="un">Admin User</div>
+                <div class="ur"><span id="userNameMob" class="username"></span></div></div>
+                <div class="ms-auto">
+                  <button class="header-right-btn logoutBtn" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
+                </div>
+              </div>
 
-            <<button class="header-right-btn logoutBtn" id="logoutBtn">Sign Out</button>
+            
           </ul>
       </div>
+      
     </div>
   </div>
 </nav>
 <div class="container-fluid text-center dashboardContainer px-0">
   <div class="row w-100 h-100 mx-0">
     <div class="col-md-3 d-none d-md-flex left ">
+      <div class="upill"><div class="av">AD</div><div><div class="un">Admin User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
       
         
-        <a href="dashboard.html" class="left-link active"><span>⊞</span><span>Dashboard</span></a>
+        <a href="dashboard.html" class="left-link mt-1 active"><span>⊞</span><span>Dashboard</span></a>
     
     
         
@@ -78,14 +96,16 @@
             <a href="Course.html" class="left-link"><span>▣</span><span>Courses</span></a>
             <a href="Notification.html" class="left-link"><span>◎</span><span>Notifications</span></a>
             <a href="Feedback.html" class="left-link"><span>◈</span><span>Feedback</span></a>
+
+            <button class="header-right-btn logoutBtn mt-auto mb-2" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out </button>
  
    
     </div>
-    <div class="col-md-9 d-flex justify-content-center right p-3">
+    <div class="col-md-9 d-flex flex-column justify-content-start right p-3">
      <div class="right-boxes mt-3">
       <div class="right-box">
         <div class="right-box-left">
-          <i class="fa-solid fa-graduation-cap right-box-icon"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ba4d4" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
         <div class="right-box-right">
           <div class="right-box-num totalStudents">0</div>
@@ -94,7 +114,7 @@
       </div>
       <div class="right-box">
         <div class="right-box-left">
-          <i class="fa-solid fa-book right-box-icon"></i>
+         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ba4d4" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
         </div>
         <div class="right-box-right">
           <div class="right-box-num totalSubjects">0</div>
@@ -103,7 +123,7 @@
       </div>
       <div class="right-box">
         <div class="right-box-left">
-          <i class="fa-solid fa-file-pen right-box-icon"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ba4d4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
         </div>
         <div class="right-box-right">
           <div class="right-box-num marksEntered">0</div>
@@ -112,7 +132,7 @@
       </div>
       <div class="right-box">
         <div class="right-box-left">
-          <i class="fa-solid fa-clipboard-list right-box-icon"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ba4d4" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
         </div>
         <div class="right-box-right">
           <div class="right-box-num resultsGenerated">0</div>
@@ -120,6 +140,18 @@
         </div>
       </div>
      </div>
+     <!-- Recent Results -->
+  <div class="dash-card mt-3">
+    <h5 class="dash-title">Recent Results</h5>
+    <div id="recentResults" class="dash-content"></div>
+  </div>
+
+  <!-- Latest Feedback -->
+  <div class="dash-card mt-3">
+    <h5 class="dash-title">Latest Feedback</h5>
+    <div id="latestFeedback" class="dash-content"></div>
+  </div>
+
     </div>
    
   </div>

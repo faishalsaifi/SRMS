@@ -9,23 +9,29 @@
 <link rel="stylesheet" href="components.css">
 <link rel="stylesheet" href="course.css">
 
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
     </head>
 <body>
     <div class="header d-none d-md-grid">
-        <div class="header-left">
-            <div><i class="fa-solid fa-circle-user"></i> <span>Edutrack | <span id="userName" class="username"></span> </span></div>
+     <div class="header-left">
+            <div>
+              <span class="header-title">Edutrack</span>
+              <span class="header-sub">SRMS</span>
+
+            </div>
         </div>
-        <div class="header-middle"><span>Courses</span>!</div>
-        <div class="header-right">
-<button class="header-right-btn logoutBtn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> log-out </button>
-        </div>
+        <div class="header-right"><span>Courses</span></div>
+       
     </div>
-    <nav class="navbar fixed-top d-md-none">
+    <nav class="navbar d-md-none">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><div><i class="fa-solid fa-circle-user"></i> <span>Edutrack | <span id="userNameMob" class="username"></span></span></div></a>
+    <a class="navbar-brand" href="#">
+      <div>
+         <span class="header-title">Edutrack</span>
+              <span class="header-sub">SRMS</span>
+      </div></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
@@ -39,7 +45,7 @@
               Main Category
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="student-dashboard.html">Dashboard</a></li>
+              <li><a class="left-link" href="student-dashboard.html">Dashboard</a></li>
              
               
             </ul></li>
@@ -49,8 +55,8 @@
               Student
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item active" href="viewCourse.html">View Courses</a></li>
-              <li><a class="dropdown-item" href="studentFeedback.html">Feedback</a></li>
+              <li><a class="left-link active" href="viewCourse.html">View Courses</a></li>
+              <li><a class="left-link" href="studentFeedback.html">Feedback</a></li>
               
               
             </ul></li>
@@ -58,7 +64,15 @@
           </ul>
           <ul class="navbar-nav">
 
-            <button class="header-right-btn logoutBtn" id="logoutBtn">Sign Out</button>
+           <div class="upill">
+              <div class="av">SD</div>
+              <div>
+                <div class="un">Student User</div>
+                <div class="ur"><span id="userNameMob" class="username"></span></div></div>
+                <div class="ms-auto">
+                  <button class="header-right-btn logoutBtn" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
+                </div>
+              </div>
           </ul>
       </div>
     </div>
@@ -68,8 +82,8 @@
   <div class="row w-100 h-100 mx-0">
     <div class="col-md-3 d-none d-md-flex left ">
       
-        
-        <a href="student-dashboard.html" class="left-link"><span>⊞</span><span>Dashboard</span></a>
+         <div class="upill"><div class="av">SD</div><div><div class="un">Student User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
+        <a href="student-dashboard.html" class="left-link mt-1"><span>⊞</span><span>Dashboard</span></a>
     
     
         
@@ -79,7 +93,7 @@
 
             <a href="studentFeedback.html" class="left-link"><span>◈</span><span>Feedback</span></a>
  
-   
+   <button class="header-right-btn logoutBtn mt-auto mb-2" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out </button>
     </div>
     <div class="col-md-9  right p-3">
        <div class="container mt-4">
