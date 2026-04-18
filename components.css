@@ -1,4 +1,105 @@
 
+.onload {
+    width: 100%;
+    height: 100dvh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    display: flex;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    animation-name: onload;
+    animation-duration: 3s;
+}
+@keyframes onload{
+    0%,50%{
+        background: #0f2040;
+        z-index: 10;
+    }
+    100%{
+        background: transparent;
+        z-index: 0;
+    }
+}
+.onload-text {
+    z-index: 0;
+    height: 100dvh;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+    justify-content: center;
+     font-family: "DM Serif Display", serif;
+    font-size: clamp(4rem, 4vw, 8rem);
+    color: #fff;
+    align-items: center;
+    animation-name: onloadText;
+    animation-duration: 2.8s;
+}
+
+@keyframes onloadText{
+    0%,50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.wrap { position: relative; width: 5rem; height: 5rem; }
+.wrap .onload-img { position: absolute; inset: 0; }
+.radar-ring  { position: absolute; inset: 0; border-radius: 14px; border: 2px solid rgb(226, 232, 240,0.3); animation: radar-ring 1.6s ease-out infinite; }
+.radar-ring2 { position: absolute; inset: 0; border-radius: 14px; border: 2px solid rgb(226, 232, 240,0.1); animation: radar-ring 1.6s ease-out 0.5s infinite; }
+@keyframes radar-ring {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.onload-shutter {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+.onload-shutter::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    z-index: 0;
+    animation-name: onload-bg;
+    animation-duration: 3s;
+    top: 0;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+}
+.onload-shutter::after {
+    content: '';
+    position: absolute;
+    right: 50%;
+    animation-name: onload-bg;
+    animation-duration: 3s;
+    top: 0;
+    z-index: 0;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+}
+@keyframes onload-bg{
+    0%,50%{
+        width: 0;
+        background: #fff;
+        z-index: 999;
+    }
+    100%{
+        width: 100%;
+        z-index: 0;
+    }
+}
+
 .form-container{
     width: 100%;
     padding: 1rem 1rem;

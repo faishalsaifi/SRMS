@@ -1,3 +1,6 @@
+.header ,.navbar ,.dashboardContainer{
+  z-index: 1;
+}
 
 .brand-icon{
     width: 56px;

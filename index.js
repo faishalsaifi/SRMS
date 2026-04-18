@@ -29,7 +29,11 @@ document.getElementById("forgot").addEventListener("click", () => {
   document.getElementById("forgotForm").style.display = "block";
   document.getElementById("loginFormHtml").style.display = "none";
   document.getElementById("signupForm").style.display = "none";
+  document.querySelector('.tabs').style.display="none";
+  // document.querySelector('.form-parent').style.display="none";
+  
 });
+
 
 particlesJS.load('particles-js', 'particles.json', () => {
   console.log('Particles.js config loaded');
@@ -158,6 +162,8 @@ if (res.ok && data.token) {
   // 🔥 role-based redirect
   if (data.user.role === "Admin") {
     window.location.href = "dashboard.html";
+    
+
   } else {
     window.location.href = "student-dashboard.html";
   }
