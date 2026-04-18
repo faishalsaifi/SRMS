@@ -50,11 +50,16 @@ const courseData = {
 };
 async function loadCourses() {
   try {
-    const res = await fetch("http://localhost:5000/api/courses");
+    const token = localStorage.getItem("token")
+    const res = await fetch("http://localhost:5000/api/courses", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
     const data = await res.json();
-
-    const courseSelect = document.getElementById("course");
-courseSelect.innerHTML = '<option value="">--Select Course--</option>';
+const courseSelect = document.getElementById("course");
+courseSelect.innerHTML = '<option value="">--Select Course--</option>'
+    
     data.forEach(course => {
       const option = document.createElement("option");
 
@@ -345,10 +350,27 @@ const res = await fetch(url, {
     } 
     alert(window.editingId ? "Result updated ✅" : "Result added ✅");
 window.editingId = null;
-const courseSelect = document.getElementById("course");
-courseSelect.innerHTML = '<option value="">--Select Course--</option>';
-    document.querySelector('.add-form').reset();
-    loadResults();
+
+ //✅ Reset form completely
+document.querySelector('.add-form').reset();
+
+// ✅ Reset dropdowns properly
+document.getElementById("course").value = "";
+document.getElementById("semester").innerHTML = '<option value="">--Select Semester--</option>';
+document.getElementById("subject").innerHTML = '<option value="">--Select Subject--</option>';
+
+// ✅ Hide manual subject
+document.getElementById("manualSubject").style.display = "none";
+document.getElementById("manualSubject").value = "";
+
+// ✅ Reset grade
+document.getElementById("grade").value = "";
+
+// ✅ Reload courses again
+await loadCourses();
+
+// ✅ Reload results table
+loadResults();
 
   } catch (err) {
     console.error(err);

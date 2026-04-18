@@ -353,12 +353,14 @@ flex-direction: column;
 .notif-title {
   font-weight: 600;
   font-size: 14px;
+  text-transform: capitalize;
   width: fit-content;
   color: #e2e8f0;
  
 }
 .notif-message {
     font-size: 0.7rem;
+    text-transform: capitalize;
     width: fit-content;
     color: #94a3b8;
 }

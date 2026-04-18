@@ -1,4 +1,5 @@
 async function sendToAll() {
+  console.log("send to all called")
   const title = document.getElementById("title").value.trim();
   const message = document.getElementById("message").value.trim();
 
@@ -34,7 +35,7 @@ async function deleteNotification(id) {
 
   const token = localStorage.getItem("token");
 
-  await fetch(`http://localhost:5000/api/notifications/delete/${id}`, {
+  await fetch(`http://localhost:5000/api/notifications/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`

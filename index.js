@@ -59,7 +59,7 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/send-otp-signup", {
+    const res = await fetch("http://localhost:5000/api/auth/send-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
      body: JSON.stringify({ name, email, role })
@@ -121,6 +121,11 @@ const passkey = document.getElementById("adminPasskey")?.value || "";
     if (res.ok && data.token) {
      localStorage.setItem("token", data.token);
 localStorage.setItem("user", JSON.stringify(data.user));
+
+if(!res.ok){
+  alert(data.message)//shows invalid otp
+  return;
+}
 
 if (data.user.role === "Admin") {
   window.location.href = "dashboard.html";
@@ -211,7 +216,7 @@ document.getElementById("forgotFormHtml").addEventListener("submit", async funct
     const newPassword = newPassField.value;
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/verify-otp", {
+      const res = await fetch("http://localhost:5000/api/auth/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp, newPassword })

@@ -51,7 +51,7 @@ document.getElementById("courseForm").addEventListener("submit", async (e) => {
   const course_code = document.getElementById("courseCode").value;
   const duration = document.getElementById("duration").value;
 
-  const res = await fetch("http://localhost:5000/api/courses/add", {
+  const res = await fetch("http://localhost:5000/api/courses/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -115,7 +115,7 @@ async function updateCourse() {
 
   const token = localStorage.getItem("token");
 
-  const res = await fetch(`http://localhost:5000/api/courses/update/${window.editCourseId}`, {
+  const res = await fetch(`http://localhost:5000/api/courses/${window.editCourseId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
