@@ -1,4 +1,6 @@
-.feedbackFormTop ,.feedbackFormTopMiddle{
+/* ================= Feedback Form Sections================= */
+
+.feedbackFormTop ,.feedbackFormMiddle{
     display: flex;
     justify-content: left;
     gap: 0.5rem;
@@ -6,7 +8,7 @@
     width: 100%;
     align-items: center;
 }
-.feedbackFormTopMiddle{
+.feedbackFormMiddle{
     flex-direction: column;
     align-items: first baseline;
 }
@@ -26,6 +28,7 @@
     align-items: first baseline;
 
 }
+/* ================= Given Feedback Card ================= */
 
 .card{
    flex-direction: row-reverse;

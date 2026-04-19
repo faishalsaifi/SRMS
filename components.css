@@ -1,3 +1,14 @@
+/* 
+========================================
+COMPONENTS.CSS
+Reusable UI components:
+- Loader animation
+- Forms
+- Tables
+- Cards
+- Notifications
+========================================
+*/
 /* ================= ONLOAD ANIMATION ================= */
 .onload {
     width: 100%;
@@ -124,7 +135,7 @@ font-weight: 600;
 
 .input-label{
     font-family: "Poppins", sans-serif !important;
-    width: 100%;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -168,7 +179,7 @@ font-weight: 600;
 }
 /* Grade B */
 .grade-b {
-  color: #60a5fa !important; /* yellow */
+  color: #60a5fa !important; /* blue */
   font-weight: bold;
 }
 .grade-blue{
@@ -192,10 +203,7 @@ font-weight: 600;
     background: rgb(239, 68, 68,0.15) !important;
 
 }
-.input-label{
-    width: fit-content;
-    
-}
+
 
 
 .form-btn{

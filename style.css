@@ -1,3 +1,5 @@
+/* ================= Google Fonts Import ================= */
+/*================= Cal Sans (headings), Poppins (UI/body), Raleway (display text) =================*/
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
@@ -10,6 +12,7 @@ body{
     height: 100svh;
     overflow: hidden;
 }
+/* ================= Auth Panel================= */
 .panel{
   display: flex;
  position: relative;
@@ -28,7 +31,7 @@ body{
   height: 100%;
    
 }
-
+/* Top-left decorative blue radial glow */
 .panel::before {
     content: '';
     position: absolute;
@@ -39,6 +42,8 @@ body{
     top: -80px;
     left: -80px;
 }
+
+/* Bottom-right decorative green radial glow */
 .panel::after {
     content: '';
     position: absolute;
@@ -51,7 +56,7 @@ body{
 }
 
 
-
+/* ================= Decorative Orbs ================= */
 .right-deco {
     position: absolute;
     top: -30px;
@@ -76,7 +81,7 @@ body{
     opacity: .1;
     pointer-events: none;
 }
-
+/* ================= Role Select (ADMIN/STUDENT)================= */
 .role-container {
   margin-top: 10px;
 
@@ -143,6 +148,7 @@ input, select{
   margin: 10px 0;
   padding: 10px;
 }
+/* ================= Form Parent (LOGIN,SIGNUP,FORGET PASSWORD)================= */
 .form-parent{
       border :1px solid #3b82f62e;
      
@@ -284,6 +290,8 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 
     width: auto;
     font-family: "Poppins", sans-serif !important;
 }
+/* =================RESPONSIVE================= */
+
 @media (max-width: 768px) {
     body{
         overflow: initial;

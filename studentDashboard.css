@@ -1,18 +1,8 @@
-.header ,.navbar ,.dashboardContainer{
+.header ,.navbar ,.MainContainer{
   z-index: 1;
 }
+/* =================Icon for Form Head================= */
 
-.brand-icon{
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: rgba(55, 138, 221, 0.18);
-    border: 1px solid rgba(55, 138, 221, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.25rem;
-}
 .brand-icon{
     width: 2.5rem;
     height: 2.5rem;
@@ -42,6 +32,7 @@
 .resultSem{
     color: #94a3b8 !important;
 }
+/* ================= Table Header Divider ================= */
 
 thead::after{
     content: '';
@@ -55,6 +46,7 @@ thead::after{
     transform: translateX(-50%);
 }
 
+/* ================= Recent Notification Card================= */
 
 .card{
     background: none;
@@ -64,7 +56,24 @@ thead::after{
     color: #e2e8f0;
 
 }
+/* ================= RESPONSIVE ================= */
 
-
+@media (max-width: 768px) {
+.navbar{
+   z-index: 10;
+ animation-name: navbar;
+    animation-duration: 5s;
+}
+  @keyframes navbar{
+    0%,50%{
+      
+        z-index: 0;
+    }
+    100%{
+       
+        z-index: 10;
+    }
+}   
+}
 
 

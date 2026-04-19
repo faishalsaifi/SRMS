@@ -43,8 +43,9 @@ document.getElementById("forgot").addEventListener("click", () => {
 });
 
 
-
-
+// ==============================
+// 📧 SEND OTP (SIGNUP)
+// ==============================
 document.getElementById("sendOtpBtn").addEventListener("click", async () => {
   
   const name = document.getElementById("name").value.trim();
@@ -52,18 +53,20 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
   const role = document.querySelector('input[name="role"]:checked').value;
    const passkey = document.getElementById("adminPasskey")?.value || "";
     
+    // Admin security check
   if (role === "Admin" && passkey !== "admin123") {
     alert("Enter correct admin passkey");
     return;
   }
 
-
+ // Basic validation
   if (!name || !email) {
     alert("Please fill in name and email.");
     return;
   }
 
   try {
+     // Call backend to send OTP
     const res = await fetch("http://localhost:5000/api/auth/send-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -73,10 +76,13 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
     const data = await res.json();
     if (res.ok) {
       alert("OTP sent to email");
+
+       // Show OTP + password fields
       document.getElementById("signupOtp").style.display = "block";
       document.getElementById("password").style.display = "block";
       document.getElementById("passLabel").style.display = "block";
       document.getElementById("createAccountBtn").style.display = "block";
+      // Hide initial fields
       document.getElementById("name").style.display = "none";
       document.getElementById("nameLab").style.display = "none";
       document.getElementById("email").style.display = "none";
@@ -92,12 +98,16 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
     alert("Something went wrong");
   }
 });
+// ==============================
+// 🔐 ROLE CHANGE (ADMIN PASSKEY UI)
+// ==============================
 document.querySelectorAll('input[name="role"]').forEach(radio => {
   radio.addEventListener("change", () => {
     const role = document.querySelector('input[name="role"]:checked').value;
     
     const passkeyDiv = document.getElementById("adminPasskeyContainer");
 
+     // Show passkey only for Admin
     if (role === "Admin") {
       passkeyDiv.style.display = "block";
     } else {
@@ -105,6 +115,9 @@ document.querySelectorAll('input[name="role"]').forEach(radio => {
     }
   });
 });
+// ==============================
+// 📝 SIGNUP (VERIFY OTP + CREATE USER)
+// ==============================
 document.getElementById("signupFormHtml").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -123,6 +136,7 @@ const passkey = document.getElementById("adminPasskey")?.value || "";
     });
 
     const data = await res.json();
+    // If success → store token & redirect
     if (res.ok && data.token) {
      localStorage.setItem("token", data.token);
 localStorage.setItem("user", JSON.stringify(data.user));
@@ -148,7 +162,9 @@ if (data.user.role === "Admin") {
 });
 
 
-// 🔐 Login form handler
+// ==============================
+// 🔑 LOGIN
+// ==============================
 document.getElementById("loginFormHtml").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -186,6 +202,9 @@ if (res.ok && data.token) {
   }
 });
 
+// ==============================
+// 🔐 FORGOT PASSWORD (2 STEP FLOW)
+// ==============================
 document.getElementById("forgotFormHtml").addEventListener("submit", async function (e) {
   e.preventDefault();
 

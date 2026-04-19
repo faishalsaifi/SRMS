@@ -1,3 +1,4 @@
+/* ================= Result Add Form ================= */
 
 .add-form{
     display: flex;
@@ -49,7 +50,7 @@ font-size: 0.68rem;
 color: #fff !important;
 font-weight: 500;
 }
-
+/* ================= Result List Table================= */
 .table-wrapper {
     flex: 1 1 auto;
     position: relative;
@@ -72,7 +73,7 @@ font-weight: 500;
     background-color: #0f2040 !important;
 }
 
-
+/* =================RESPONSIVE================= */
 
 @media screen and (max-width:767px) {
 .form-grid{

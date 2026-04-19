@@ -1,3 +1,5 @@
+/* ================= Notification Form Container ================= */
+
 .notification-form-cont{
     display: flex;
     width: 100%;
@@ -14,6 +16,9 @@
     flex-direction: column;
     align-items: start;
 }
+/* ================= Notification List================= */
+/*================= Scrollable dark panel that holds all notification cards,
+   capped at 70% of the small viewport height =================*/
 #notificationList{
     background: #0f2040;
     overflow-y: scroll;
@@ -26,9 +31,12 @@
     max-height: 70svh;
 
 }
+
 #notificationList::-webkit-scrollbar{
     width: 0px;
 }
+/* =================List Card================= */
+
 .notification-card {
     background: rgba(59, 130, 246, 0.13);
     display: flex;

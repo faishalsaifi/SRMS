@@ -1,7 +1,7 @@
-.header ,.navbar ,.dashboardContainer{
+.header ,.navbar ,.MainContainer{
   z-index: 1;
 }
-
+/* ================= 4-column grid layout for the top summary stat cards ================= */
 .right-boxes{
     width: 100%;
     height: fit-content;
@@ -64,6 +64,7 @@
     color: #6e8fa8;
 
 }
+/* ============== Dashboard Cards (Recent Results / Feedback) ================= */
 .dash-card {
   background: rgb(74, 144, 226, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.18);
@@ -90,7 +91,7 @@
     width: 0px;
 }
 
-/* item styles */
+/*================= item styles =================*/
 .result-item, .feedback-item {
   padding: 0.5rem;
   border-bottom: 1px solid rgba(59,130,246,0.1);
@@ -130,8 +131,26 @@ justify-content: space-between;
     color: #60a5fa;
     text-align: left;
 }
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .right-boxes {
     grid-template-columns: repeat(2, 1fr); 
   }
+
+.navbar{
+   z-index: 10;
+ animation-name: navbar;
+    animation-duration: 5s;
+}
+  @keyframes navbar{
+    0%,50%{
+      
+        z-index: 0;
+    }
+    100%{
+       
+        z-index: 10;
+    }
+}   
+    
 }
