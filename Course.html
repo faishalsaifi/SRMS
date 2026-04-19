@@ -12,6 +12,7 @@
 
     </head>
 <body>
+   <!-------------Header (Desktop View)------------>
     <div class="header d-none d-md-grid">
        <div class="header-left">
             <div>
@@ -23,6 +24,8 @@
         <div class="header-right"><span>Course Management</span></div>
         
     </div>
+
+    <!-------------Mobile Navigation------------>
     <nav class="navbar d-md-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -39,6 +42,7 @@
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
+        <!-------------Navbar Links------------>
         <ul class="navbar-nav flex-grow-1 pe-3 ">
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +68,7 @@
             
           </ul>
           <ul class="navbar-nav">
-
+<!-------------User Name and Sign Out wrapper(Mobile View)------------>
           <div class="upill">
               <div class="av">AD</div>
               <div>
@@ -79,8 +83,11 @@
     </div>
   </div>
 </nav>
+<!-------------Main Container for Content------------>
+
 <div class="container-fluid text-center dashboardContainer px-0">
   <div class="row w-100 h-100 mx-0">
+     <!-------------Sidebar (Desktop)------------>
     <div class="col-md-3 d-none d-md-flex left ">
       
          <div class="upill"><div class="av">AD</div><div><div class="un">Admin User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
@@ -96,11 +103,14 @@
  <button class="header-right-btn logoutBtn mt-auto mb-2" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out </button>
    
     </div>
+    <!-- Right Content Area (Dynamic Section) -->
     <div class="col-md-9 d-flex justify-content-start flex-column right p-3">
+
+      <!-- Course Container  -->
      <div class="container mt-4">
   <h3 class="form-head">Add Course</h3>
 
-  <!-- Add Course -->
+  <!-- Add Course Form -->
   <form id="courseForm" class="courseForm">
     <div>
         
@@ -114,6 +124,7 @@
         <button type="reset" class="resetFormBtn mt-3">Cancel</button>
     </div>
   </form>
+  <!-- Show Courses(List) -->
   <div class="courseCards mt-4" id="courseCards"></div>
 
   <hr>

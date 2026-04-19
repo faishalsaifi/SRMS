@@ -1,4 +1,8 @@
-// Tab switching logic
+// ==============================
+// 🔄 TAB SWITCHING (Login / Signup / Forgot)
+// ==============================
+
+//Show login form
 document.getElementById("loginTab").addEventListener("click", () => {
   document.getElementById("loginFormHtml").style.display = "block";
   document.getElementById("roleContainer").style.display = "none";
@@ -8,6 +12,7 @@ document.getElementById("loginTab").addEventListener("click", () => {
   document.getElementById("signupTab").classList.remove("active");
 });
 
+//Show SignUp form
 document.getElementById("signupTab").addEventListener("click", () => {
   document.getElementById("signupForm").style.display = "block";
   document.getElementById("roleContainer").style.display = "block";
@@ -16,6 +21,8 @@ document.getElementById("signupTab").addEventListener("click", () => {
   document.getElementById("signupTab").classList.add("active");
   document.getElementById("loginTab").classList.remove("active");
 });
+
+//Alternate SignUp trigger (button)
 document.getElementById("signUpBtn").addEventListener("click", () => {
   document.getElementById("signupForm").style.display = "block";
   document.getElementById("roleContainer").style.display = "block";
@@ -25,19 +32,17 @@ document.getElementById("signUpBtn").addEventListener("click", () => {
   document.getElementById("loginTab").classList.remove("active");
 });
 
+//Show forget password form
 document.getElementById("forgot").addEventListener("click", () => {
   document.getElementById("forgotForm").style.display = "block";
   document.getElementById("loginFormHtml").style.display = "none";
   document.getElementById("signupForm").style.display = "none";
   document.querySelector('.tabs').style.display="none";
-  // document.querySelector('.form-parent').style.display="none";
+ 
   
 });
 
 
-particlesJS.load('particles-js', 'particles.json', () => {
-  console.log('Particles.js config loaded');
-});
 
 
 document.getElementById("sendOtpBtn").addEventListener("click", async () => {

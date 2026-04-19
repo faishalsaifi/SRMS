@@ -1,31 +1,46 @@
+// ==============================
+// ⭐ STAR RATING SYSTEM
+// ==============================
+
+// Store selected rating value
 let selectedRating = 0;
 
+// Get all star elements
 const stars = document.querySelectorAll("#starRating span");
 
+// 🔁 Add click event to each star
 stars.forEach(star => {
   star.addEventListener("click", () => {
+     // ✅ Get rating value from clicked star
     selectedRating = star.getAttribute("data-value");
 
+     // 🔄 Remove active class from all stars
     stars.forEach(s => s.classList.remove("active"));
 
+      // ⭐ Highlight selected stars
     for (let i = 0; i < selectedRating; i++) {
       stars[i].classList.add("active");
     }
   });
 });
+// ==============================
+// 📝 SUBMIT FEEDBACK
+// ==============================
 document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const message = document.getElementById("message").value.trim();
- const rating = selectedRating;
+ const rating = selectedRating; // selected star rating
   const token = localStorage.getItem("token");
 
+  // ❌ Validation
   if (!message || !rating) {
     alert("Please fill all fields");
     return;
   }
 
   try {
+    // 🔄 Send feedback to backend
     const res = await fetch("http://localhost:5000/api/feedback/add", {
       method: "POST",
       headers: {
@@ -39,6 +54,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
 
     if (res.ok) {
       alert("Feedback sent ✅");
+      // 🔄 Reset form
       document.getElementById("feedbackForm").reset();
       loadMyFeedback(); // refresh list
     } else {
@@ -50,10 +66,15 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
     alert("Error occurred");
   }
 });
+
+// ==============================
+// 📥 LOAD MY FEEDBACK (STUDENT)
+// ==============================
 async function loadMyFeedback() {
   const token = localStorage.getItem("token");
 
   try {
+     // 🔄 Fetch logged-in student's feedback
     const res = await fetch("http://localhost:5000/api/feedback/my", {
       headers: {
         Authorization: `Bearer ${token}`
@@ -70,9 +91,12 @@ async function loadMyFeedback() {
       return;
     }
 
+     // 🔁 Loop through feedback
     data.forEach(fb => {
+      // ⭐ Convert rating to stars
       let stars = "★".repeat(fb.rating);
 
+      // 🧾 Feedback card UI
       const card = `
         <div class="card p-2 mb-2">
           <div class="stars">${stars}</div>
@@ -87,4 +111,8 @@ async function loadMyFeedback() {
     console.error(err);
   }
 }
-window.onload = loadMyFeedback();
+
+// ==============================
+// 🚀 INITIAL LOAD
+// ==============================
+window.onload = loadMyFeedback();// load feedback on page load

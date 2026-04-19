@@ -9,15 +9,15 @@
 <link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
 </head>
 <body>
+<!-- ===== Authentication Panel ===== -->
     <div class="panel p-none">
                   <div class="right-deco">
-                    
                   </div>
                   <div class="right-deco2">
                     
                   </div>
+                   <!-- Role Selection (Student / Admin) -->
              <div class="role-container  text-center mb-3" id="roleContainer">
-
 
   <div class="role-toggle">
     <input type="radio" name="role" id="student" value="Student" checked>
@@ -29,13 +29,18 @@
     <span class="role-slider"></span>
   </div>
 </div>
+
+ <!-- ===== Form Section ===== -->
 <div class="form-parent">
+
+  <!-- Tabs: Login / Signup -->
      <div class="tabs ">
 <button id="loginTab" class="loginBtn active">Login</button>
 <button id="signupTab">Signup</button>
 </div>
+<!-------------Login form------------>
     <div id="loginFormHtml" class="loginForm mt-3">
-      <!-- <h2>Login</h2> -->
+
       <form>
         <label for="loginEmail" class="formLabel"><i class="fa-solid fa-envelope"></i> Your Email</label>
         <input type="email" id="loginEmail" class="formInput" required />
@@ -53,8 +58,11 @@
       </div>
       </form>
 </div>
+
+<!-------------Sign Up Form (OTP based verification) ------------>
+
 <div id="signupForm" class="signupForm mt-3" style="display: none;">
-  <!-- <h2>SignUp</h2> -->
+ 
   <form id="signupFormHtml">
   <label for="name" id="nameLab" class="formLabel"><i class="fa-solid fa-user-tie"></i> Your Full Name</label>
   <input type="text" id="name" name="name" class="formInput" required />
@@ -75,6 +83,9 @@
 
   <button type="submit" id="createAccountBtn" class="formBtn" style="display:none">Verify & Create Account</button>
 </form></div>
+
+<!-------------Forgot Password Form (OTP reset flow) ------------>
+
 <div id="forgotForm" class="forgotForm" style="display: none;">
   <h2 class="form-head"><i class="fa-solid fa-unlock-keyhole"></i> Forgot Password ?</h2>
   <label for="forgotFormHtml" class="formLabel"><i class="fa-solid fa-envelope"></i> Enter Your email</label>
@@ -94,7 +105,7 @@
     
    
     <script src="index.js"defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/f44e101240.js" crossorigin="anonymous"></script>

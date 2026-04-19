@@ -12,6 +12,7 @@
 <link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
     </head>
 <body>
+  <!-------------Onload Animation------------>
   <div class="onload" id="loaderShown">
       <div class="onload-text">
         <div class="wrap">
@@ -24,6 +25,9 @@
       </div>
       <div class="onload-shutter"></div>
     </div>
+
+      <!-------------Header (Desktop View)------------>
+
     <div class="header d-none d-md-grid">
        <div class="header-left">
             <div>
@@ -35,6 +39,9 @@
         <div class="header-right"><span>Dashboard</span></div>
        
     </div>
+    
+<!-------------Mobile Navigation------------>
+
     <nav class="navbar d-md-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -51,6 +58,7 @@
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
+        <!-------------Navbar Links------------>
         <ul class="navbar-nav flex-grow-1 pe-3 ">
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,6 +84,8 @@
           </ul>
           <ul class="navbar-nav">
 
+<!-------------User Name and Sign Out wrapper(Mobile View)------------>
+
            <div class="upill">
               <div class="av">SD</div>
               <div>
@@ -90,25 +100,27 @@
     </div>
   </div>
 </nav>
+
+<!-------------Main Container for Content------------>
+
 <div class="container-fluid text-center dashboardContainer position-relative px-0">
   <div class="row w-100 h-100 mx-0">
+
+     <!-------------Sidebar (Desktop)------------>
+
     <div class="col-md-3 d-none d-md-flex left ">
        <div class="upill"><div class="av">SD</div><div><div class="un">Student User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
         
         <a href="dashboard.html" class="left-link mt-1 active"><span>⊞</span><span>Dashboard</span></a>
-    
-    
-        
-          
-           
             <a href="viewCourse.html" class="left-link"><span>▣</span><span>Courses</span></a>
-
             <a href="studentFeedback.html" class="left-link"><span>◈</span><span>Feedback</span></a>
  <button class="header-right-btn logoutBtn mt-auto mb-2" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out </button>
    
     </div>
+    <!-- Right Content Area (Dynamic Section) -->
     <div class="col-md-9  right p-3">
        <div>
+        <!-- My Result(Student Result) -->
         <div class="right-top">
 
             <div class="brand-icon">
@@ -133,7 +145,7 @@
     </table>
   </div>
 
-  <!-- NOTIFICATIONS -->
+  <!-- NOTIFICATIONS(From Admin Side) -->
   <div class="NotificationTab">
     <h4 class="form-head">Notifications</h4>
     <div id="studentNotifications"></div>

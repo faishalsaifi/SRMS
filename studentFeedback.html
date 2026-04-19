@@ -14,6 +14,9 @@
 <link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
     </head>
 <body>
+
+  <!-------------Header (Desktop View)------------>
+
     <div class="header d-none d-md-grid">
         <div class="header-left">
             <div>
@@ -25,6 +28,9 @@
         <div class="header-right"><span>Feedback</span></div>
       
     </div>
+
+    <!-------------Mobile Navigation------------>
+
     <nav class="navbar d-md-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -41,6 +47,7 @@
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
+        <!-------------Navbar Links------------>
         <ul class="navbar-nav flex-grow-1 pe-3 ">
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,6 +73,8 @@
           </ul>
           <ul class="navbar-nav">
 
+            <!-------------User Name and Sign Out wrapper(Mobile View)------------>
+
            <div class="upill">
               <div class="av">SD</div>
               <div>
@@ -80,24 +89,30 @@
     </div>
   </div>
 </nav>
+
+<!-------------Main Container for Content------------>
+
 <div class="container-fluid text-center dashboardContainer px-0">
   <div class="row w-100 h-100 mx-0">
+
+    <!-------------Sidebar (Desktop)------------>
+
     <div class="col-md-3 d-none d-md-flex left ">
        <div class="upill"><div class="av">SD</div><div><div class="un">Student User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
         
         <a href="student-dashboard.html" class="left-link mt-1"><span>⊞</span><span>Dashboard</span></a>
     
-    
-        
-          
-           
             <a href="viewCourse.html" class="left-link"><span>▣</span><span>Courses</span></a>
 
             <a href="studentFeedback.html" class="left-link active"><span>◈</span><span>Feedback</span></a>
  
    <button class="header-right-btn logoutBtn mt-auto mb-2" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out </button>
     </div>
+
+    <!-- Right Content Area (Dynamic Section) -->
+
     <div class="col-md-9  right p-3">
+      <!-- Submit Feedback -->
       <form id="feedbackForm" class="feedbackForm">
         <h4 class="form-head">Submit Feedback</h4>
 
@@ -122,6 +137,7 @@
   <button class="form-btn mt-2">Submit Feedback</button>
 </form>
 <h5 class="mt-4 form-head">Your Feedback</h5>
+<!-- List all Feedback Given-->
 <div id="feedbackList" class="feedbackList mt-2"></div>
     </div>
    

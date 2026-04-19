@@ -1,17 +1,25 @@
+// =======================================
+// 📢 Send notification to all students
+// =======================================
 async function sendToAll() {
   console.log("send to all called")
+
+  //Get Input Values
   const title = document.getElementById("title").value.trim();
   const message = document.getElementById("message").value.trim();
 
+  //Validation
   if (!title || !message) {
     alert("Enter title and message");
     return;
   }
 
-  const combined = `${title}||${message}`; // 🔥 IMPORTANT
+  // Combine title + message into one string (stored in DB)
+  const combined = `${title}||${message}`; 
 
   const token = localStorage.getItem("token");
 
+// Send request to backend
   await fetch("http://localhost:5000/api/notifications/send-all", {
     method: "POST",
     headers: {
@@ -27,14 +35,20 @@ async function sendToAll() {
   document.getElementById("title").value = "";
   document.getElementById("message").value = "";
 
-  loadNotifications(); // refresh
+// Reload notifications list
+  loadNotifications(); 
 }
+
+// =======================================
+// ❌ Delete notification
+// =======================================
 async function deleteNotification(id) {
   const confirmDelete = confirm("Delete this notification?");
   if (!confirmDelete) return;
 
   const token = localStorage.getItem("token");
 
+// Send DELETE request
   await fetch(`http://localhost:5000/api/notifications/${id}`, {
     method: "DELETE",
     headers: {
@@ -43,8 +57,14 @@ async function deleteNotification(id) {
   });
 
   alert("Deleted ✅");
+
+    // Reload notifications
   loadNotifications();
 }
+
+// =======================================
+// 📥 Load all notifications 
+// =======================================
 async function loadNotifications() {
   const token = localStorage.getItem("token");
 
@@ -57,19 +77,24 @@ async function loadNotifications() {
   const data = await res.json();
 
   const container = document.getElementById("notificationList");
+
+  // Clear existing UI
   container.innerHTML = "";
 
+  // Loop through notifications
   data.forEach(n => {
 
     let title = "";
     let message = n.message;
 
-    // 🔥 SPLIT LOGIC
+   // Split stored message into title + body
     if (n.message.includes("||")) {
       const parts = n.message.split("||");
       title = parts[0];
       message = parts[1];
     }
+
+     // Format date
 let formattedDate = "No date";
 
 if (n.date_sent && n.date_sent !== "0000-00-00 00:00:00") {
@@ -83,6 +108,7 @@ if (n.date_sent && n.date_sent !== "0000-00-00 00:00:00") {
 } else {
   formattedDate = "Recently";
 }
+// Create notification card UI
     const card = `
       <div class="notification-card">
       <div class="notification-card-left">
@@ -109,4 +135,8 @@ if (n.date_sent && n.date_sent !== "0000-00-00 00:00:00") {
     container.innerHTML += card;
   });
 }
+
+// =======================================
+// 🚀 Load notifications on page load
+// =======================================
 window.addEventListener("DOMContentLoaded", loadNotifications);

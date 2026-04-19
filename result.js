@@ -1,3 +1,7 @@
+// =======================================
+// 📚 Predefined Course → Semester → Subjects Mapping
+// Used to auto-fill subjects based on selected course & semester
+// =======================================
 const courseData = {
   "BCA": { // BCA
     1: [
@@ -48,6 +52,9 @@ const courseData = {
     ],
   }
 };
+// =======================================
+// 📥 Load Courses from Backend API
+// =======================================
 async function loadCourses() {
   try {
     const token = localStorage.getItem("token")
@@ -58,14 +65,16 @@ async function loadCourses() {
     });
     const data = await res.json();
 const courseSelect = document.getElementById("course");
+ // Reset dropdown
 courseSelect.innerHTML = '<option value="">--Select Course--</option>'
-    
+
+    // Populate dropdown
     data.forEach(course => {
       const option = document.createElement("option");
 
       option.value = course.course_id;
 
-      // 🔥 IMPORTANT: store course_code for logic
+       // Store course_code for subject logic
       option.setAttribute("data-code", course.course_code);
 
       option.textContent = `${course.course_name} (${course.course_code})`;
@@ -77,6 +86,9 @@ courseSelect.innerHTML = '<option value="">--Select Course--</option>'
     console.error("Error loading courses:", err);
   }
 }
+// =======================================
+// 📅 Generate 6 Semesters (Static)
+// =======================================
 function updateSemesters() {
   const semesterSelect = document.getElementById('semester');
 
@@ -90,6 +102,9 @@ function updateSemesters() {
     semesterSelect.appendChild(option);
   }
 }
+// =======================================
+// 📘 Update Subjects Based on Course + Semester
+// =======================================
 function updateSubjects() {
   const courseSelect = document.getElementById('course');
   const selectedOption = courseSelect.options[courseSelect.selectedIndex];
@@ -102,7 +117,7 @@ function updateSubjects() {
 
   subjectSelect.innerHTML = '<option value="">--Select Subject--</option>';
 
-  // 🔥 IMPORTANT: if semester not selected → do nothing
+  // If semester not selected → do nothing
   if (!semester) {
     subjectSelect.style.display = "block";
     manualInput.style.display = "none";
@@ -124,7 +139,7 @@ function updateSubjects() {
       option.textContent = subject;
       subjectSelect.appendChild(option);
     });
-
+    // Add manual option
     const otherOption = document.createElement('option');
     otherOption.value = "other";
     otherOption.textContent = "Other (Type Manually)";
@@ -136,6 +151,9 @@ function updateSubjects() {
     manualInput.style.display = "block";
   }
 }
+// =======================================
+// 📝 Handle "Other Subject" selection
+// =======================================
 document.getElementById("subject").addEventListener("change", function () {
   const manualInput = document.getElementById("manualSubject");
 
@@ -146,12 +164,16 @@ document.getElementById("subject").addEventListener("change", function () {
     manualInput.value = "";
   }
 });
+// =======================================
+// 🎯 Grade Calculation Logic
+// =======================================
 function calculateGrade(marks) {
   if (marks >= 75) return "A";
   if (marks >= 50) return "B";
   if (marks >= 40) return "C";
   return "F";
 }
+// Auto-update grade field
 const marksInput = document.getElementById("marks");
 const gradeInput = document.getElementById("grade");
 
@@ -164,6 +186,9 @@ marksInput.addEventListener("input", () => {
     gradeInput.value = "";
   }
 });
+// =======================================
+// 📊 Load All Results (Table View)
+// =======================================
 async function loadResults() {
   try {
     const token = localStorage.getItem("token");
@@ -179,6 +204,7 @@ async function loadResults() {
     const table = document.getElementById("resultTableBody");
     table.innerHTML = "";
     data.forEach(result => {
+       // Assign CSS class based on grade
       let gradeClass = "";
       let gradeBack ="";
       
@@ -196,6 +222,7 @@ async function loadResults() {
         gradeClass ="grade-f"
         gradeBack ="grade-red"
       }
+      // Create table row
       const row = `
         <tr>
         <td class="resultEnroll">${result.enrollment_no}</td>
@@ -217,6 +244,7 @@ async function loadResults() {
     console.error("Error loading results:", err);
   }
 }
+// Create table row
 async function deleteResult(id) {
   const confirmDelete = confirm("Delete this result?");
   if (!confirmDelete) return;
@@ -233,6 +261,9 @@ async function deleteResult(id) {
   alert("Deleted!");
   loadResults();
 }
+// =======================================
+// 🔍 Auto-fetch student name from email
+// =======================================
 const emailInput = document.getElementById("email");
 const nameInput = document.getElementById("studentName");
 
@@ -268,18 +299,23 @@ emailInput.addEventListener("blur", async () => {
     nameInput.value = "";
   }
 });
+// =======================================
+// ➕ Add / ✏️ Update Result Form Submission
+// =======================================
 document.querySelector('.add-form').addEventListener('submit', async function (e) {
   e.preventDefault();
 
   const token = localStorage.getItem('token');
+  //Form values
   const email = document.getElementById('email').value;
    const enrollment_no = document.getElementById('enroll').value;
+
 let subjectDropdown = document.getElementById('subject').value;
 let manualSubject = document.getElementById("manualSubject").value.trim();
 
 let subject = "";
 
-// ✅ Priority logic
+ // Priority: manual > dropdown
 if (manualSubject !== "") {
   subject = manualSubject;
 } else if (subjectDropdown !== "" && subjectDropdown !== "other") {
@@ -377,6 +413,9 @@ loadResults();
     alert("❌ Failed to submit result");
   }
 });
+// =======================================
+// ✏️ Edit Result (Load data into form)
+// =======================================
 async function editResult(id) {
   try {
     const token = localStorage.getItem("token");
@@ -416,7 +455,7 @@ async function editResult(id) {
       document.getElementById("manualSubject").value = data.subject;
     }
 
-    // 🔥 IMPORTANT: email (you were missing this)
+    
     document.getElementById("email").value = data.email || "";
 
     window.editingId = id;
@@ -427,6 +466,9 @@ async function editResult(id) {
     console.error("Edit error:", err);
   }
 }
+// =======================================
+// 🚀 Initial Load (on page open)
+// =======================================
 window.addEventListener("DOMContentLoaded", () => {
   loadCourses();
   loadResults();

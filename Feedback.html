@@ -11,6 +11,8 @@
 <link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
     </head>
 <body>
+
+    <!-------------Header (Desktop View)------------>
     <div class="header d-none d-md-grid">
       <div class="header-left">
             <div>
@@ -22,6 +24,9 @@
         <div class="header-right"><span>Feedback</span>!</div>
         
     </div>
+
+    <!-------------Mobile Navigation------------>
+
     <nav class="navbar d-md-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -38,6 +43,7 @@
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
+         <!-------------Navbar Links------------>
         <ul class="navbar-nav flex-grow-1 pe-3 ">
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,6 +70,7 @@
           </ul>
           <ul class="navbar-nav">
 
+            <!-------------User Name and Sign Out wrapper(Mobile View)------------>
             <div class="upill">
               <div class="av">AD</div>
               <div>
@@ -78,8 +85,14 @@
     </div>
   </div>
 </nav>
+
+<!-------------Main Container for Content------------>
+
 <div class="container-fluid text-center dashboardContainer px-0">
   <div class="row w-100 h-100 mx-0">
+
+     <!-------------Sidebar (Desktop)------------>
+
     <div class="col-md-3 d-none d-md-flex left ">
        <div class="upill"><div class="av">AD</div><div><div class="un">Admin User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
         
@@ -95,8 +108,12 @@
  <button class="header-right-btn logoutBtn mt-auto mb-2" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out </button>
    
     </div>
+
+    <!-- Right Content Area (Dynamic Section) -->
+
     <div class="col-md-9 d-flex flex-column  justify-content-start right p-3">
   <h4 class="mt-4 form-head">All Feedback</h4>
+  <!-- List All Feedback -->
 <div id="adminFeedbackList" class="form-container"></div>
     </div>
    

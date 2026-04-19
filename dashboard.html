@@ -12,6 +12,7 @@
 <link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
     </head>
 <body>
+  <!-------------Onload Animation------------>
   <div class="onload">
       <div class="onload-text">
         <div class="wrap">
@@ -24,6 +25,9 @@
       </div>
       <div class="onload-shutter"></div>
     </div>
+
+    <!-------------Header (Desktop View)------------>
+
     <div class="header d-none d-md-grid">
         <div class="header-left">
             <div>
@@ -35,6 +39,9 @@
         <div class="header-right"><span>Dashboard</span></div>
         
     </div>
+
+<!-------------Mobile Navigation------------>
+
     <nav class="navbar d-md-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -51,6 +58,7 @@
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column">
+        <!-------------Navbar Links------------>
         <ul class="navbar-nav flex-grow-1 pe-3 ">
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,6 +84,8 @@
             
           </ul>
           <ul class="navbar-nav">
+<!-------------User Name and Sign Out wrapper(Mobile View)------------>
+
             <div class="upill">
               <div class="av">AD</div>
               <div>
@@ -93,8 +103,14 @@
     </div>
   </div>
 </nav>
+
+<!-------------Main Container for Content------------>
+
 <div class="container-fluid text-center dashboardContainer position-relative px-0">
   <div class="row w-100 h-100 mx-0">
+
+    <!-------------Sidebar (Desktop)------------>
+
     <div class="col-md-3 d-none d-md-flex left ">
       <div class="upill"><div class="av">AD</div><div><div class="un">Admin User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
       
@@ -113,7 +129,12 @@
  
    
     </div>
+   <!-- Right Content Area (Dynamic Section) -->
     <div class="col-md-9 d-flex flex-column justify-content-start right p-3">
+
+      <!-- ============================== -->
+<!-- 📊 DASHBOARD STATS CARDS -->
+<!-- ============================== -->
      <div class="right-boxes mt-3">
       <div class="right-box">
         <div class="right-box-left">
@@ -152,15 +173,17 @@
         </div>
       </div>
      </div>
-     <!-- Recent Results -->
+     <!-- Recent Results (Dynamic Data) -->
   <div class="dash-card mt-3">
     <h5 class="dash-title">Recent Results</h5>
+    <!-- 🔄 Populated dynamically via dashboard.js -->
     <div id="recentResults" class="dash-content"></div>
   </div>
 
-  <!-- Latest Feedback -->
+  <!-- Latest Feedback (Dynamic Data)-->
   <div class="dash-card mt-3">
     <h5 class="dash-title">Latest Feedback</h5>
+
     <div id="latestFeedback" class="dash-content"></div>
   </div>
 

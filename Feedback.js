@@ -1,21 +1,28 @@
+// ==============================
+// 📥 LOAD ALL FEEDBACK (ADMIN VIEW)
+// ==============================
 async function loadAllFeedback() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");//JWT Token
 
+   // 🔄 Fetch all feedback from backend
   const res = await fetch("http://localhost:5000/api/feedback/all", {
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}` //protected route
     }
   });
 
   const data = await res.json();
 
   const container = document.getElementById("adminFeedbackList");
-  container.innerHTML = "";
+  container.innerHTML = "";//clear previous list
 
+  // 🔁 Loop through feedback data
   data.forEach(fb => {
 
+    // ⭐ Generate star rating
     const stars = "★".repeat(fb.rating);
 
+     // 🧾 Create feedback card UI
     const card = `
       <div class="card p-2 feedbackCard">
         <div style="display:flex; justify-content:space-between;">
@@ -31,15 +38,20 @@ async function loadAllFeedback() {
       </div>
     `;
 
+    // ➕ Append card to container
     container.innerHTML += card;
   });
 }
+// ==============================
+// ❌ DELETE FEEDBACK
+// ==============================
 async function deleteFeedback(id) {
   const confirmDelete = confirm("Delete this feedback?");
   if (!confirmDelete) return;
 
   const token = localStorage.getItem("token");
 
+   // 🔄 Call delete API
   await fetch(`http://localhost:5000/api/feedback/delete/${id}`, {
     method: "DELETE",
     headers: {
@@ -48,8 +60,12 @@ async function deleteFeedback(id) {
   });
 
   alert("Deleted ✅");
+   // 🔁 Reload feedback list after delete
   loadAllFeedback();
 }
+// ==============================
+// 🚀 INITIAL LOAD
+// ==============================
 window.onload = () => {
-  loadAllFeedback();
+  loadAllFeedback();// load all feedback on page load
 };

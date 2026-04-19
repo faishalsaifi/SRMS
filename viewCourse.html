@@ -12,6 +12,9 @@
 <link rel="icon" type="image/png" href="assets/edutrack_favicon_c.svg">
     </head>
 <body>
+
+   <!-------------Header (Desktop View)------------>
+
     <div class="header d-none d-md-grid">
      <div class="header-left">
             <div>
@@ -23,6 +26,9 @@
         <div class="header-right"><span>Courses</span></div>
        
     </div>
+
+    <!-------------Mobile Navigation------------>
+
     <nav class="navbar d-md-none">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -44,6 +50,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Main Category
             </a>
+            <!-------------Navbar Links------------>
             <ul class="dropdown-menu">
               <li><a class="left-link" href="student-dashboard.html">Dashboard</a></li>
              
@@ -64,6 +71,8 @@
           </ul>
           <ul class="navbar-nav">
 
+<!-------------User Name and Sign Out wrapper(Mobile View)------------>
+
            <div class="upill">
               <div class="av">SD</div>
               <div>
@@ -78,27 +87,32 @@
     </div>
   </div>
 </nav>
+
+<!-------------Main Container for Content------------>
+
 <div class="container-fluid text-center dashboardContainer px-0">
   <div class="row w-100 h-100 mx-0">
+
+    <!-------------Sidebar (Desktop)------------>
+
     <div class="col-md-3 d-none d-md-flex left ">
       
          <div class="upill"><div class="av">SD</div><div><div class="un">Student User</div><div class="ur"><span id="userName" class="username"></span></div></div></div>
         <a href="student-dashboard.html" class="left-link mt-1"><span>⊞</span><span>Dashboard</span></a>
     
-    
-        
-          
-           
             <a href="viewCourse.html" class="left-link active"><span>▣</span><span>Courses</span></a>
 
             <a href="studentFeedback.html" class="left-link"><span>◈</span><span>Feedback</span></a>
  
    <button class="header-right-btn logoutBtn mt-auto mb-2" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out </button>
     </div>
+
+     <!-- Right Content Area (Dynamic Section) -->
+
     <div class="col-md-9  right p-3">
        <div class="container mt-4">
   <h3 class="form-head">Available Courses</h3>
-
+ <!-- List All Courses(From DB) -->
   <div class="row mt-3" id="courseCards"></div>
 </div>
     </div>

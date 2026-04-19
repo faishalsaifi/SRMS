@@ -1,4 +1,4 @@
-
+/* ================= ONLOAD ANIMATION ================= */
 .onload {
     width: 100%;
     height: 100dvh;
@@ -99,7 +99,7 @@
         z-index: 0;
     }
 }
-
+/* ================= FORM COMPONENTS ================= */
 .form-container{
     width: 100%;
     padding: 1rem 1rem;
@@ -156,6 +156,7 @@ font-weight: 600;
     color: #94a3b8 !important;
 
 }
+/* ================= GRADE STYLING ================= */
 /* Grade A */
 .grade-a {
   color: #10b981 !important; /* green */
@@ -213,6 +214,8 @@ font-weight: 600;
     border: 1px solid rgba(59, 130, 246, 0.32);
 }
 
+/* ================= TABLE & BUTTONS ================= */
+
 .table{
     --bs-table-bg: transparent !important;
     font-size: 0.75rem;
@@ -248,6 +251,8 @@ thead th {
     color: #ef4444;
     border: 1px solid rgba(239, 68, 68, 0.25);
 }
+
+/* ================= COURSE CARDS ================= */
 .course-card{
     background: rgba(15, 32, 64, 0.97);
     padding: 1rem 1rem;
@@ -331,6 +336,7 @@ flex-direction: column;
 .NotificationTab{
     padding: 1rem 0.5rem;
 }
+/* ================= NOTIFICATIONS ================= */
 .notification-card-left{
     height: 2rem;
     width: 2rem;
@@ -370,6 +376,7 @@ flex-direction: column;
     width: fit-content;
 
 }
+/* ================= RESPONSIVE ================= */
 @media screen and (max-width:767px) {
    
 .form-container{
