@@ -20,7 +20,7 @@ async function sendToAll() {
   const token = localStorage.getItem("token");
 
 // Send request to backend
-  await fetch("http://localhost:5000/api/notifications/send-all", {
+  await fetch("https://backend-ehm8.onrender.com/api/notifications/send-all", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -49,7 +49,7 @@ async function deleteNotification(id) {
   const token = localStorage.getItem("token");
 
 // Send DELETE request
-  await fetch(`http://localhost:5000/api/notifications/${id}`, {
+  await fetch(`https://backend-ehm8.onrender.com/api/notifications/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`
@@ -68,7 +68,7 @@ async function deleteNotification(id) {
 async function loadNotifications() {
   const token = localStorage.getItem("token");
 
-  const res = await fetch("http://localhost:5000/api/notifications/all", {
+  const res = await fetch("https://backend-ehm8.onrender.com/api/notifications/all", {
     headers: {
       Authorization: `Bearer ${token}`
     }

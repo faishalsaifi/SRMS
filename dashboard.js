@@ -14,7 +14,7 @@ if (!userId) {
 
   try {
      // API call to get user details
-    const res = await fetch(`http://localhost:5000/api/users/${userId}`, {
+    const res = await fetch(`https://backend-ehm8.onrender.com/api/users/${userId}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -43,7 +43,7 @@ async function fetchDashboardStats() {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch('http://localhost:5000/api/dashboard/stats', {
+    const res = await fetch('https://backend-ehm8.onrender.com/api/dashboard/stats', {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -73,7 +73,7 @@ async function loadRecentResults() {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch("http://localhost:5000/api/results/all", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/results/all", {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -131,7 +131,7 @@ async function loadLatestFeedback() {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch("http://localhost:5000/api/feedback/all", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/feedback/all", {
       headers: { Authorization: `Bearer ${token}` }
     });
 

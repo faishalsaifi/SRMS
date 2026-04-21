@@ -268,7 +268,11 @@ thead th {
     border: 1px solid rgba(59,130,246,0.18);
     
 }
-
+.empty{
+    font-size: 0.75rem;
+     color: #94a3b8;
+    font-weight: 600;
+}
 .card-top ,.card-middle ,.card-bottom{
     display: flex;
   gap: 1rem;

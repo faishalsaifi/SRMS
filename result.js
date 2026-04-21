@@ -58,7 +58,7 @@ const courseData = {
 async function loadCourses() {
   try {
     const token = localStorage.getItem("token")
-    const res = await fetch("http://localhost:5000/api/courses", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/courses", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -193,7 +193,7 @@ async function loadResults() {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await fetch("http://localhost:5000/api/results/all", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/results/all", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -251,7 +251,7 @@ async function deleteResult(id) {
 
   const token = localStorage.getItem("token");
 
-  await fetch(`http://localhost:5000/api/results/delete/${id}`, {
+  await fetch(`https://backend-ehm8.onrender.com/api/results/delete/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`
@@ -275,7 +275,7 @@ emailInput.addEventListener("blur", async () => {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await fetch(`http://localhost:5000/api/users/by-email/${email}`, {
+    const res = await fetch(`https://backend-ehm8.onrender.com/api/users/by-email/${email}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -338,14 +338,14 @@ if (!subject) {
   try {
     const token = localStorage.getItem('token');
 
-   let url = "http://localhost:5000/api/results/add";
+   let url = "https://backend-ehm8.onrender.com/api/results/add";
 let method = "POST";
 
 // 🔥 If editing → update instead of add
 if (window.editingId) {
    const confirmEdit = confirm("Update this result?");
   if (!confirmEdit) return;
-  url = `http://localhost:5000/api/results/update/${window.editingId}`;
+  url = `https://backend-ehm8.onrender.com/api/results/update/${window.editingId}`;
   method = "PUT";
 }
 console.log({
@@ -420,7 +420,7 @@ async function editResult(id) {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await fetch(`http://localhost:5000/api/results/${id}`, {
+    const res = await fetch(`https://backend-ehm8.onrender.com/api/results/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

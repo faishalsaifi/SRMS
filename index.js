@@ -67,7 +67,7 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
 
   try {
      // Call backend to send OTP
-    const res = await fetch("http://localhost:5000/api/auth/send-otp", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/auth/send-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
      body: JSON.stringify({ name, email, role })
@@ -129,7 +129,7 @@ document.getElementById("signupFormHtml").addEventListener("submit", async funct
 const passkey = document.getElementById("adminPasskey")?.value || "";
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/verify-otp-signup", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/auth/verify-otp-signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, otp , role, passkey})
@@ -172,7 +172,7 @@ document.getElementById("loginFormHtml").addEventListener("submit", async functi
   const password = document.getElementById('loginPass').value;
 
   try {
-    const res = await fetch('http://localhost:5000/api/auth/login', {
+    const res = await fetch('https://backend-ehm8.onrender.com/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -215,7 +215,7 @@ document.getElementById("forgotFormHtml").addEventListener("submit", async funct
   // 1️⃣ First phase: Send OTP
   if (otpField.style.display === "none") {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/forgot-password", {
+      const res = await fetch("https://backend-ehm8.onrender.com/api/auth/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
@@ -240,7 +240,7 @@ document.getElementById("forgotFormHtml").addEventListener("submit", async funct
     const newPassword = newPassField.value;
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/reset-password", {
+      const res = await fetch("https://backend-ehm8.onrender.com/api/auth/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp, newPassword })

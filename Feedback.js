@@ -5,7 +5,7 @@ async function loadAllFeedback() {
   const token = localStorage.getItem("token");//JWT Token
 
    // 🔄 Fetch all feedback from backend
-  const res = await fetch("http://localhost:5000/api/feedback/all", {
+  const res = await fetch("https://backend-ehm8.onrender.com/api/feedback/all", {
     headers: {
       Authorization: `Bearer ${token}` //protected route
     }
@@ -52,7 +52,7 @@ async function deleteFeedback(id) {
   const token = localStorage.getItem("token");
 
    // 🔄 Call delete API
-  await fetch(`http://localhost:5000/api/feedback/delete/${id}`, {
+  await fetch(`https://backend-ehm8.onrender.com/api/feedback/delete/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`

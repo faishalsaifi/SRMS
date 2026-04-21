@@ -41,7 +41,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
 
   try {
     // 🔄 Send feedback to backend
-    const res = await fetch("http://localhost:5000/api/feedback/add", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/feedback/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ async function loadMyFeedback() {
 
   try {
      // 🔄 Fetch logged-in student's feedback
-    const res = await fetch("http://localhost:5000/api/feedback/my", {
+    const res = await fetch("https://backend-ehm8.onrender.com/api/feedback/my", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -87,7 +87,7 @@ async function loadMyFeedback() {
     container.innerHTML = "";
 
     if (data.length === 0) {
-      container.innerHTML = "<p>No feedback yet</p>";
+      container.innerHTML = `<p class="empty">No feedback yet</p>`;
       return;
     }
 

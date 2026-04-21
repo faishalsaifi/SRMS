@@ -16,7 +16,7 @@ async function loadMyResults() {
   const token = localStorage.getItem("token");
 
   // 🔄 Fetch only logged-in student's results
-  const res = await fetch("http://localhost:5000/api/results/my-results", {
+  const res = await fetch("https://backend-ehm8.onrender.com/api/results/my-results", {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -32,7 +32,7 @@ async function loadMyResults() {
   if (data.length === 0) {
     table.innerHTML = `
       <tr>
-        <td colspan="4" style="text-align:center">
+        <td colspan="4" class="empty" style="text-align:center">
           ⏳ Result not declared yet
         </td>
       </tr>
@@ -82,7 +82,7 @@ async function loadStudentNotifications() {
   const token = localStorage.getItem("token");
 
    // 🔄 Fetch all notifications
-  const res = await fetch("http://localhost:5000/api/notifications/all", {
+  const res = await fetch("https://backend-ehm8.onrender.com/api/notifications/all", {
     headers: {
       Authorization: `Bearer ${token}`
     }

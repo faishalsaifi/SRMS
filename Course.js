@@ -3,7 +3,7 @@
 // =======================================
 async function loadCourses() {
   //Fetch Courses
-  const res = await fetch("http://localhost:5000/api/courses");
+  const res = await fetch("https://backend-ehm8.onrender.com/api/courses");
   const data = await res.json();
   console.log(data);
 
@@ -62,7 +62,7 @@ document.getElementById("courseForm").addEventListener("submit", async (e) => {
   const duration = document.getElementById("duration").value;
   
   //Send POST request
-  const res = await fetch("http://localhost:5000/api/courses/", {
+  const res = await fetch("https://backend-ehm8.onrender.com/api/courses/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -89,7 +89,7 @@ async function deleteCourse(id) {
   const token = localStorage.getItem("token");
   
    // Send DELETE request
-  await fetch(`http://localhost:5000/api/courses/${id}`, {
+  await fetch(`https://backend-ehm8.onrender.com/api/courses/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`
@@ -106,7 +106,7 @@ async function deleteCourse(id) {
 async function editCourse(id) {
   const token = localStorage.getItem("token");
 
-  const res = await fetch(`http://localhost:5000/api/courses/${id}`, {
+  const res = await fetch(`https://backend-ehm8.onrender.com/api/courses/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -143,7 +143,7 @@ async function updateCourse() {
   const token = localStorage.getItem("token");
 
   // Send PUT request 
-  const res = await fetch(`http://localhost:5000/api/courses/${window.editCourseId}`, {
+  const res = await fetch(`https://backend-ehm8.onrender.com/api/courses/${window.editCourseId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
